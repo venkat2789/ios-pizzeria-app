@@ -12,6 +12,7 @@ struct Login: View {
     @State var password: String = ""
     @State var authSuccess: Bool = false
     @State var authFailure: Bool = false
+    @EnvironmentObject var viewRouter: ViewRouter
     
     let validUserName = "123"
     let validPassword = "123"
@@ -45,7 +46,7 @@ struct Login: View {
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                 
-                if(authFailure){
+                if(authFailure){ //consider making this alert
                     Text("Invalid credentials. Please try again!")
                         .font(.caption)
                         .bold()
@@ -53,10 +54,13 @@ struct Login: View {
                         .offset(y: -10)
                 }
                 
-                Button(action: {
+                Button(action: { //consider disabling until details are entered
                     if (self.username == validUserName && self.password == validPassword) {
                         self.authSuccess = true
                         self.authFailure = false
+                        withAnimation(){
+                            viewRouter.currentPage = .home
+                        }
                     } else {
                         self.authFailure = true
                         self.authSuccess = false
@@ -74,20 +78,20 @@ struct Login: View {
             }
             .padding()
             
-            if(authSuccess){
-                Text("Login successful!")
-                    .font(.headline)
-                    .frame(width: 220, height: 60)
-                    .background(Color.green)
-                    .cornerRadius(15.0)
-                    .foregroundColor(.white)
-            }
+//            if(authSuccess){
+//                Text("Login successful!")
+//                    .font(.headline)
+//                    .frame(width: 220, height: 60)
+//                    .background(Color.green)
+//                    .cornerRadius(15.0)
+//                    .foregroundColor(.white)
+//            }
         }
     }
 }
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        Login()
+        Login().environmentObject(ViewRouter())
     }
 }
