@@ -10,13 +10,12 @@ import SwiftUI
 @main
 struct PizzeriaApp: App {
     @StateObject var viewRouter = ViewRouter()
-//    let persistenceController = PersistenceController.shared
+    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             MainView().environmentObject(viewRouter)
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

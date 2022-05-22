@@ -19,6 +19,7 @@ struct MainView: View {
                 .transition(.scale)
         case .list:
             ContentView()
+                .transition(.scale)
         }
     }
 }

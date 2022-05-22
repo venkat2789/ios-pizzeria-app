@@ -18,6 +18,9 @@
 		53CDB82A283AC54D000E817B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB829283AC54D000E817B /* MainView.swift */; };
 		53CDB82C283AC5B7000E817B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB82B283AC5B7000E817B /* Helpers.swift */; };
 		53CDB82E283AC7B6000E817B /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB82D283AC7B6000E817B /* ViewRouter.swift */; };
+		53CDB831283ADC52000E817B /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB82F283ADC52000E817B /* Order+CoreDataClass.swift */; };
+		53CDB832283ADC52000E817B /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB830283ADC52000E817B /* Order+CoreDataProperties.swift */; };
+		53CDB834283AE002000E817B /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB833283AE002000E817B /* OrderSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		53CDB829283AC54D000E817B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		53CDB82B283AC5B7000E817B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		53CDB82D283AC7B6000E817B /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		53CDB82F283ADC52000E817B /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53CDB830283ADC52000E817B /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		53CDB833283AE002000E817B /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,16 +72,11 @@
 			isa = PBXGroup;
 			children = (
 				53CDB8122839A1BB000E817B /* PizzeriaApp.swift */,
+				53CDB835283AE307000E817B /* Views */,
 				53CDB82B283AC5B7000E817B /* Helpers.swift */,
-				53CDB8142839A1BB000E817B /* ContentView.swift */,
 				53CDB8162839A1D1000E817B /* Assets.xcassets */,
-				53CDB81B2839A1D1000E817B /* Persistence.swift */,
-				53CDB81D2839A1D1000E817B /* Pizzeria.xcdatamodeld */,
+				53CDB836283AE324000E817B /* Core Data */,
 				53CDB8182839A1D1000E817B /* Preview Content */,
-				53CDB8252839A353000E817B /* Login.swift */,
-				53CDB829283AC54D000E817B /* MainView.swift */,
-				53CDB82D283AC7B6000E817B /* ViewRouter.swift */,
-				53CDB827283ABD0F000E817B /* Home.swift */,
 			);
 			path = Pizzeria;
 			sourceTree = "<group>";
@@ -86,6 +87,30 @@
 				53CDB8192839A1D1000E817B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		53CDB835283AE307000E817B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53CDB82D283AC7B6000E817B /* ViewRouter.swift */,
+				53CDB829283AC54D000E817B /* MainView.swift */,
+				53CDB8252839A353000E817B /* Login.swift */,
+				53CDB827283ABD0F000E817B /* Home.swift */,
+				53CDB8142839A1BB000E817B /* ContentView.swift */,
+				53CDB833283AE002000E817B /* OrderSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53CDB836283AE324000E817B /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				53CDB81B2839A1D1000E817B /* Persistence.swift */,
+				53CDB81D2839A1D1000E817B /* Pizzeria.xcdatamodeld */,
+				53CDB82F283ADC52000E817B /* Order+CoreDataClass.swift */,
+				53CDB830283ADC52000E817B /* Order+CoreDataProperties.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,10 +187,13 @@
 				53CDB81C2839A1D1000E817B /* Persistence.swift in Sources */,
 				53CDB82A283AC54D000E817B /* MainView.swift in Sources */,
 				53CDB8262839A353000E817B /* Login.swift in Sources */,
+				53CDB834283AE002000E817B /* OrderSheet.swift in Sources */,
 				53CDB82C283AC5B7000E817B /* Helpers.swift in Sources */,
 				53CDB8152839A1BB000E817B /* ContentView.swift in Sources */,
 				53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */,
 				53CDB828283ABD0F000E817B /* Home.swift in Sources */,
+				53CDB831283ADC52000E817B /* Order+CoreDataClass.swift in Sources */,
+				53CDB832283ADC52000E817B /* Order+CoreDataProperties.swift in Sources */,
 				53CDB81F2839A1D1000E817B /* Pizzeria.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
