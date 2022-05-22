@@ -13,6 +13,7 @@
 		53CDB81A2839A1D1000E817B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CDB8192839A1D1000E817B /* Preview Assets.xcassets */; };
 		53CDB81C2839A1D1000E817B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB81B2839A1D1000E817B /* Persistence.swift */; };
 		53CDB81F2839A1D1000E817B /* Pizzeria.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB81D2839A1D1000E817B /* Pizzeria.xcdatamodeld */; };
+		53CDB8262839A353000E817B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB8252839A353000E817B /* Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		53CDB8192839A1D1000E817B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		53CDB81B2839A1D1000E817B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		53CDB81E2839A1D1000E817B /* Pizzeria.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pizzeria.xcdatamodel; sourceTree = "<group>"; };
+		53CDB8252839A353000E817B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				53CDB81B2839A1D1000E817B /* Persistence.swift */,
 				53CDB81D2839A1D1000E817B /* Pizzeria.xcdatamodeld */,
 				53CDB8182839A1D1000E817B /* Preview Content */,
+				53CDB8252839A353000E817B /* Login.swift */,
 			);
 			path = Pizzeria;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53CDB81C2839A1D1000E817B /* Persistence.swift in Sources */,
+				53CDB8262839A353000E817B /* Login.swift in Sources */,
 				53CDB8152839A1BB000E817B /* ContentView.swift in Sources */,
 				53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */,
 				53CDB81F2839A1D1000E817B /* Pizzeria.xcdatamodeld in Sources */,
