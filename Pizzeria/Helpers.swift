@@ -10,5 +10,6 @@ import Foundation
 enum Page {
     case login
     case home
-    case list
+    case detail
+    case order
 }

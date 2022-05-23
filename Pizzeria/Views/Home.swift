@@ -13,11 +13,13 @@ struct Home: View {
     
     var body: some View {
         VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Categories/Food Menu")
             Button(action: {
-                viewRouter.currentPage = .list
+                withAnimation(){
+                    viewRouter.currentPage = .detail
+                }
             }) {
-                Text("Go to ContentView")
+                Text("Go to DetailView")
             }
         }
     }

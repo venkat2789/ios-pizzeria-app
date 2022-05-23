@@ -36,17 +36,17 @@ struct Login: View {
                 
                 TextField("Username", text: $username)
                     .padding()
-                    .background(Color("TextFieldBackground"))
+                    .background(Color("LightGrayBackground"))
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                 
                 SecureField("Password", text: $password)
                     .padding()
-                    .background(Color("TextFieldBackground"))
+                    .background(Color("LightGrayBackground"))
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                 
-                if(authFailure){ //consider making this alert
+                if(authFailure){ //consider making this as alert
                     Text("Invalid credentials. Please try again!")
                         .font(.caption)
                         .bold()
@@ -77,15 +77,6 @@ struct Login: View {
                 
             }
             .padding()
-            
-//            if(authSuccess){
-//                Text("Login successful!")
-//                    .font(.headline)
-//                    .frame(width: 220, height: 60)
-//                    .background(Color.green)
-//                    .cornerRadius(15.0)
-//                    .foregroundColor(.white)
-//            }
         }
     }
 }

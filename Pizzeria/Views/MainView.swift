@@ -17,8 +17,11 @@ struct MainView: View {
         case .home:
             Home()
                 .transition(.scale)
-        case .list:
-            ContentView()
+        case .detail:
+            DetailView()
+                .transition(.scale)
+        case .order:
+            OrderView()
                 .transition(.scale)
         }
     }
