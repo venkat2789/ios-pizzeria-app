@@ -46,7 +46,9 @@ struct DetailView: View {
                 do {
                     try viewContext.save()
                     print("Order saved.")
-                    viewRouter.currentPage = .order
+                    withAnimation(.default){
+                        viewRouter.currentPage = .landing
+                    }
                     
                 } catch {
                     print(error.localizedDescription)

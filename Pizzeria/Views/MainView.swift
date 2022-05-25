@@ -14,14 +14,26 @@ struct MainView: View {
         switch viewRouter.currentPage {
         case .login:
             Login()
-        case .home:
-            Home()
+        case .landing:
+            TabViewRouter()
                 .transition(.scale)
-        case .detail:
-            DetailView()
+        case .home:
+            HomeView()
+                .transition(.scale)
+        case .rewards:
+            RewardsView()
+                .transition(.scale)
+        case .menu:
+            MenuView()
+                .transition(.scale)
+        case .favorites:
+            FavoritesView()
                 .transition(.scale)
         case .order:
             OrderView()
+                .transition(.scale)
+        case .detail:
+            DetailView()
                 .transition(.scale)
         }
     }

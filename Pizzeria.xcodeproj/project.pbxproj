@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53917101283EE07700413E74 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917100283EE07700413E74 /* TabViewRouter.swift */; };
+		53917103283EE2F200413E74 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917102283EE2F200413E74 /* HomeView.swift */; };
 		53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB8122839A1BB000E817B /* PizzeriaApp.swift */; };
 		53CDB8172839A1D1000E817B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CDB8162839A1D1000E817B /* Assets.xcassets */; };
 		53CDB81A2839A1D1000E817B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CDB8192839A1D1000E817B /* Preview Assets.xcassets */; };
 		53CDB81C2839A1D1000E817B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB81B2839A1D1000E817B /* Persistence.swift */; };
 		53CDB81F2839A1D1000E817B /* Pizzeria.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB81D2839A1D1000E817B /* Pizzeria.xcdatamodeld */; };
 		53CDB8262839A353000E817B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB8252839A353000E817B /* Login.swift */; };
-		53CDB828283ABD0F000E817B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB827283ABD0F000E817B /* Home.swift */; };
 		53CDB82A283AC54D000E817B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB829283AC54D000E817B /* MainView.swift */; };
 		53CDB82C283AC5B7000E817B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB82B283AC5B7000E817B /* Helpers.swift */; };
 		53CDB82E283AC7B6000E817B /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB82D283AC7B6000E817B /* ViewRouter.swift */; };
@@ -22,9 +23,14 @@
 		53CDB838283B130D000E817B /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB837283B130D000E817B /* OrderView.swift */; };
 		53CDB83A283B1372000E817B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB839283B1372000E817B /* DetailView.swift */; };
 		53CDB83C283B312C000E817B /* AccountSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB83B283B312C000E817B /* AccountSheet.swift */; };
+		53CDB83E283C4F75000E817B /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB83D283C4F75000E817B /* RewardsView.swift */; };
+		53CDB840283C4F8F000E817B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB83F283C4F8F000E817B /* FavoritesView.swift */; };
+		53CDB842283C50A2000E817B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB841283C50A2000E817B /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53917100283EE07700413E74 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
+		53917102283EE2F200413E74 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		53CDB80F2839A1BB000E817B /* Pizzeria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pizzeria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CDB8122839A1BB000E817B /* PizzeriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzeriaApp.swift; sourceTree = "<group>"; };
 		53CDB8162839A1D1000E817B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,7 +38,6 @@
 		53CDB81B2839A1D1000E817B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		53CDB81E2839A1D1000E817B /* Pizzeria.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pizzeria.xcdatamodel; sourceTree = "<group>"; };
 		53CDB8252839A353000E817B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		53CDB827283ABD0F000E817B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		53CDB829283AC54D000E817B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		53CDB82B283AC5B7000E817B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		53CDB82D283AC7B6000E817B /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
@@ -41,6 +46,9 @@
 		53CDB837283B130D000E817B /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		53CDB839283B1372000E817B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		53CDB83B283B312C000E817B /* AccountSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSheet.swift; sourceTree = "<group>"; };
+		53CDB83D283C4F75000E817B /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
+		53CDB83F283C4F8F000E817B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		53CDB841283C50A2000E817B /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53917104283EEB1C00413E74 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				53917102283EE2F200413E74 /* HomeView.swift */,
+				53CDB83D283C4F75000E817B /* RewardsView.swift */,
+				53CDB841283C50A2000E817B /* MenuView.swift */,
+				53CDB83F283C4F8F000E817B /* FavoritesView.swift */,
+				53CDB837283B130D000E817B /* OrderView.swift */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
 		53CDB8062839A1BA000E817B = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				53CDB8122839A1BB000E817B /* PizzeriaApp.swift */,
-				53CDB835283AE307000E817B /* Views */,
 				53CDB82B283AC5B7000E817B /* Helpers.swift */,
+				53CDB835283AE307000E817B /* Views */,
 				53CDB8162839A1D1000E817B /* Assets.xcassets */,
 				53CDB836283AE324000E817B /* Core Data */,
 				53CDB8182839A1D1000E817B /* Preview Content */,
@@ -94,12 +114,12 @@
 		53CDB835283AE307000E817B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				53CDB82D283AC7B6000E817B /* ViewRouter.swift */,
-				53CDB829283AC54D000E817B /* MainView.swift */,
 				53CDB8252839A353000E817B /* Login.swift */,
-				53CDB827283ABD0F000E817B /* Home.swift */,
+				53CDB82D283AC7B6000E817B /* ViewRouter.swift */,
+				53917100283EE07700413E74 /* TabViewRouter.swift */,
+				53CDB829283AC54D000E817B /* MainView.swift */,
+				53917104283EEB1C00413E74 /* TabViews */,
 				53CDB839283B1372000E817B /* DetailView.swift */,
-				53CDB837283B130D000E817B /* OrderView.swift */,
 				53CDB83B283B312C000E817B /* AccountSheet.swift */,
 			);
 			path = Views;
@@ -186,17 +206,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53CDB842283C50A2000E817B /* MenuView.swift in Sources */,
 				53CDB82E283AC7B6000E817B /* ViewRouter.swift in Sources */,
+				53CDB83E283C4F75000E817B /* RewardsView.swift in Sources */,
 				53CDB838283B130D000E817B /* OrderView.swift in Sources */,
 				53CDB81C2839A1D1000E817B /* Persistence.swift in Sources */,
+				53917103283EE2F200413E74 /* HomeView.swift in Sources */,
 				53CDB83A283B1372000E817B /* DetailView.swift in Sources */,
+				53CDB840283C4F8F000E817B /* FavoritesView.swift in Sources */,
 				53CDB82A283AC54D000E817B /* MainView.swift in Sources */,
 				53CDB8262839A353000E817B /* Login.swift in Sources */,
 				53CDB82C283AC5B7000E817B /* Helpers.swift in Sources */,
 				53CDB83C283B312C000E817B /* AccountSheet.swift in Sources */,
 				53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */,
-				53CDB828283ABD0F000E817B /* Home.swift in Sources */,
 				53CDB831283ADC52000E817B /* Order+CoreDataClass.swift in Sources */,
+				53917101283EE07700413E74 /* TabViewRouter.swift in Sources */,
 				53CDB832283ADC52000E817B /* Order+CoreDataProperties.swift in Sources */,
 				53CDB81F2839A1D1000E817B /* Pizzeria.xcdatamodeld in Sources */,
 			);

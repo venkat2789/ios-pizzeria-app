@@ -1,21 +1,21 @@
 //
-//  Home.swift
+//  MenuView.swift
 //  Pizzeria
 //
-//  Created by Venkatachalapathy Sivaprakasam on 5/22/22.
+//  Created by Venkatachalapathy Sivaprakasam on 5/23/22.
 //
 
 import SwiftUI
 
-
-struct Home: View {
+struct MenuView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         VStack{
-            Text("Categories/Food Menu")
+            Text("This is Menu view")
+            
             Button(action: {
-                withAnimation(){
+                withAnimation(.default){
                     viewRouter.currentPage = .detail
                 }
             }) {
@@ -25,8 +25,8 @@ struct Home: View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        Home().environmentObject(ViewRouter())
+        MenuView().environmentObject(ViewRouter())
     }
 }

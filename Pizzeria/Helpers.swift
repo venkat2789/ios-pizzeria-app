@@ -9,7 +9,11 @@ import Foundation
 
 enum Page {
     case login
+    case landing
     case home
-    case detail
+    case rewards
+    case menu
+    case favorites
     case order
+    case detail
 }

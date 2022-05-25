@@ -59,7 +59,7 @@ struct Login: View {
                         self.authSuccess = true
                         self.authFailure = false
                         withAnimation(){
-                            viewRouter.currentPage = .home
+                            viewRouter.currentPage = .landing
                         }
                     } else {
                         self.authFailure = true
