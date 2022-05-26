@@ -12,15 +12,29 @@ struct MenuView: View {
     
     var body: some View {
         VStack{
-            Text("This is Menu view")
+//            Text("This is Menu view")
             
-            Button(action: {
-                withAnimation(.default){
-                    viewRouter.currentPage = .detail
+            NavigationView {
+                List(1...3, id: \.self) { index in
+                    NavigationLink(
+                        destination: DetailView(),
+                        label: {
+                            Text("Item #\(index)")
+                                .font(.system(size: 20, weight: .bold, design: .rounded))
+                        })
+         
                 }
-            }) {
-                Text("Go to DetailView")
+         
+                .navigationTitle("Pizzas")
             }
+            
+//            Button(action: {
+//                withAnimation(.default){
+//                    viewRouter.currentPage = .detail
+//                }
+//            }) {
+//                Text("Go to DetailView")
+//            }
         }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		53917101283EE07700413E74 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917100283EE07700413E74 /* TabViewRouter.swift */; };
 		53917103283EE2F200413E74 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917102283EE2F200413E74 /* HomeView.swift */; };
+		53917106283EFF2A00413E74 /* TabViewForIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917105283EFF2A00413E74 /* TabViewForIntro.swift */; };
 		53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB8122839A1BB000E817B /* PizzeriaApp.swift */; };
 		53CDB8172839A1D1000E817B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CDB8162839A1D1000E817B /* Assets.xcassets */; };
 		53CDB81A2839A1D1000E817B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CDB8192839A1D1000E817B /* Preview Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		53917100283EE07700413E74 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
 		53917102283EE2F200413E74 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		53917105283EFF2A00413E74 /* TabViewForIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewForIntro.swift; sourceTree = "<group>"; };
 		53CDB80F2839A1BB000E817B /* Pizzeria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pizzeria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CDB8122839A1BB000E817B /* PizzeriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzeriaApp.swift; sourceTree = "<group>"; };
 		53CDB8162839A1D1000E817B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				53917104283EEB1C00413E74 /* TabViews */,
 				53CDB839283B1372000E817B /* DetailView.swift */,
 				53CDB83B283B312C000E817B /* AccountSheet.swift */,
+				53917105283EFF2A00413E74 /* TabViewForIntro.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				53CDB83A283B1372000E817B /* DetailView.swift in Sources */,
 				53CDB840283C4F8F000E817B /* FavoritesView.swift in Sources */,
 				53CDB82A283AC54D000E817B /* MainView.swift in Sources */,
+				53917106283EFF2A00413E74 /* TabViewForIntro.swift in Sources */,
 				53CDB8262839A353000E817B /* Login.swift in Sources */,
 				53CDB82C283AC5B7000E817B /* Helpers.swift in Sources */,
 				53CDB83C283B312C000E817B /* AccountSheet.swift in Sources */,

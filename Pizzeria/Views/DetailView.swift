@@ -19,7 +19,8 @@ struct DetailView: View {
         VStack{
             Image("pizza-placeholder")
                 .resizable()
-                .ignoresSafeArea(edges: .top)
+//                .ignoresSafeArea(edges: .top)
+            //overlaps with back button of nav view
                 .frame(height: 200)
             
             NavigationView {
@@ -47,7 +48,8 @@ struct DetailView: View {
                     try viewContext.save()
                     print("Order saved.")
                     withAnimation(.default){
-                        viewRouter.currentPage = .landing
+                        //viewRouter.currentPage = .landing
+                        //This does not work as viewRouter still has landing value and it has not changed
                     }
                     
                 } catch {
