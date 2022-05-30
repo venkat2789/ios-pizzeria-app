@@ -12,7 +12,7 @@ struct TabViewRouter: View {
     
     var body: some View {
         TabView (selection: $selectedTab) {
-                HomeView()
+                CategoryHome()
                     .tabItem {
                         Image(systemName: "house")
                         Text("Home")
@@ -52,5 +52,6 @@ struct TabViewRouter: View {
 struct TabViewRouter_Previews: PreviewProvider {
     static var previews: some View {
         TabViewRouter()
+            .environmentObject(ModelData())
     }
 }

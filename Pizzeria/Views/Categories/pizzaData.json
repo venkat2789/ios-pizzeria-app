@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Pizza Margherita",
+        "category": "Our Picks",
+        "city": "Twentynine Palms",
+        "state": "California",
+        "id": 1001,
+        "isFeatured": true,
+        "isFavorite": true,
+        "park": "Joshua Tree National Park",
+        "coordinates": {
+            "longitude": -116.166868,
+            "latitude": 34.011286
+        },
+        "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
+        "imageName": "pizza-placeholder"
+    },
+    {
+        "name": "Greek Pizza",
+        "category": "Our Picks",
+        "city": "Port Alsworth",
+        "state": "Alaska",
+        "id": 1002,
+        "isFeatured": false,
+        "isFavorite": false,
+        "park": "Lake Clark National Park and Preserve",
+        "coordinates": {
+            "longitude": -152.665167,
+            "latitude": 59.980167
+        },
+        "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
+        "imageName": "pizza-placeholder"
+    },
+    {
+        "name": "Pizza Supreme",
+        "category": "Our Picks",
+        "city": "Skagway",
+        "state": "Alaska",
+        "id": 1003,
+        "isFeatured": false,
+        "isFavorite": true,
+        "park": "Klondike Gold Rush National Historical Park",
+        "coordinates": {
+            "longitude": -135.334571,
+            "latitude": 59.560551
+        },
+        "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
+        "imageName": "pizza-placeholder"
+    },
+    {
+        "name": "Pizza California",
+        "category": "Fan Favorites",
+        "city": "Browning",
+        "state": "Montana",
+        "id": 1004,
+        "isFeatured": true,
+        "isFavorite": true,
+        "park": "Glacier National Park",
+        "coordinates": {
+            "longitude": -113.536248,
+            "latitude": 48.69423
+        },
+        "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
+        "imageName": "pizza-placeholder"
+    },
+    {
+        "name": "New York Pizza",
+        "category": "Fan Favorites",
+        "city": "Twin Lakes",
+        "state": "Alaska",
+        "id": 1005,
+        "isFeatured": false,
+        "isFavorite": false,
+        "park": "Lake Clark National Park and Preserve",
+        "coordinates": {
+            "longitude": -153.849883,
+            "latitude": 60.641684
+        },
+        "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
+        "imageName": "pizza-placeholder"
+    },
+    {
+        "name": "Pizza Hawaiian",
+        "category": "Meatless Specials",
+        "city": "Twin Lakes",
+        "state": "Alaska",
+        "id": 1005,
+        "isFeatured": false,
+        "isFavorite": false,
+        "park": "Lake Clark National Park and Preserve",
+        "coordinates": {
+            "longitude": -153.849883,
+            "latitude": 60.641684
+        },
+        "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
+        "imageName": "pizza-placeholder"
+    }
+]

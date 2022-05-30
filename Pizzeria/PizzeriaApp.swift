@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct PizzeriaApp: App {
+    @StateObject var modelData = ModelData()
     @StateObject var viewRouter = ViewRouter() //changes views e.g. login to home
     let persistenceController = PersistenceController.shared //for CoreData
 
@@ -17,6 +18,7 @@ struct PizzeriaApp: App {
             MainView().environmentObject(viewRouter)
             //pass viewContext as managedObjectContext for CoreData
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(modelData)
         }
     }
 }
