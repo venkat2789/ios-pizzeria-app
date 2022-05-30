@@ -118,8 +118,8 @@
 			children = (
 				53CDB8252839A353000E817B /* Login.swift */,
 				53CDB82D283AC7B6000E817B /* ViewRouter.swift */,
-				53917100283EE07700413E74 /* TabViewRouter.swift */,
 				53CDB829283AC54D000E817B /* MainView.swift */,
+				53917100283EE07700413E74 /* TabViewRouter.swift */,
 				53917104283EEB1C00413E74 /* TabViews */,
 				53CDB839283B1372000E817B /* DetailView.swift */,
 				53CDB83B283B312C000E817B /* AccountSheet.swift */,

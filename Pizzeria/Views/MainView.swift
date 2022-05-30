@@ -17,21 +17,6 @@ struct MainView: View {
         case .landing:
             TabViewRouter()
                 .transition(.scale)
-        case .home:
-            HomeView()
-                .transition(.scale)
-        case .rewards:
-            RewardsView()
-                .transition(.scale)
-        case .menu:
-            MenuView()
-                .transition(.scale)
-        case .favorites:
-            FavoritesView()
-                .transition(.scale)
-        case .order:
-            OrderView()
-                .transition(.scale)
         }
     }
 }
