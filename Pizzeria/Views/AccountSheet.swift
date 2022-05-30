@@ -18,6 +18,13 @@ struct AccountSheet: View {
                         Text("Name")
                         Text("Contact")
                     }
+//                    Section(header: Text("ABOUT")) {
+//                        HStack {
+//                            Text("App Version")
+//                            Spacer()
+//                            Text("1.0.0")
+//                        }
+//                    }
                     
                 }
                 .navigationTitle("Profile")
