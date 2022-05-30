@@ -13,32 +13,33 @@ struct DetailView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var viewRouter: ViewRouter
-    @State var selectedPizzaIndex = 1
-    @State var numberOfSlices = 1
-    @State var crustType = 1
-    @State var isIngredientExpanded : Bool = true
+    @State private var selectedPizzaIndex = 1
+    @State private var numberOfSlices = 1
+    @State private var crustType = 1
+    @State private var isIngredientExpanded : Bool = true
+    @State private var presentAlert = false
+    @Binding var isDetailViewShown: Bool
     
     var body: some View {
         VStack{
             Image("pizza-placeholder")
                 .resizable()
-//                .ignoresSafeArea(edges: .top)
-            //overlaps with back button of nav view
+                .ignoresSafeArea(edges: .top)
                 .frame(height: 200)
             
-            NavigationView {
-                Form {
-                    Section(header: Text("Pizza Details")) {
-                        Picker(selection: $selectedPizzaIndex, label: Text("Pizza Type")) {
-                            ForEach(0 ..< pizzaTypes.count, id:\.self) {
-                                Text(self.pizzaTypes[$0]).tag($0)
-                            }
-                        }
-                        
-                        Stepper("\(numberOfSlices) Slices", value: $numberOfSlices, in: 1...12)
-                    }
+            HStack {
+                Button(action: {
+                    isDetailViewShown = false
+                }) {
+                    Image(systemName: "arrow.backward.circle.fill")
+                        .foregroundColor(.red)
+                    Text("Back to menu")
+                        .foregroundColor(.red)
+                        .font(.subheadline)
+                        .padding(.leading, -5)
                 }
-                .navigationTitle("Order Details")
+                .padding(.leading)
+                Spacer()
             }
             
             
@@ -55,7 +56,7 @@ struct DetailView: View {
                 
                 NavigationView {
                     Form {
-                        Section(header: Text("Pizza Type")) {
+                        Section(header: Text("Pizza")) {
                             Picker(selection: $selectedPizzaIndex, label: Text("Pizza Type")) {
                                 ForEach(0 ..< pizzaTypes.count, id:\.self) {
                                     Text(self.pizzaTypes[$0]).tag($0)
@@ -76,6 +77,7 @@ struct DetailView: View {
                     }
                     .navigationTitle("Customize")
                     .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true)
                 }
                 .frame(height: 400, alignment: .center)
                 
@@ -90,10 +92,8 @@ struct DetailView: View {
                         try viewContext.save()
                         print("Order saved.")
                         withAnimation(.default){
-                            //viewRouter.currentPage = .landing
-                            //This does not work as viewRouter still has landing value and it has not changed
+                            presentAlert = true
                         }
-                        
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -107,15 +107,19 @@ struct DetailView: View {
                         .cornerRadius(15.0)
                 }
                 .padding()
+                .alert("Awesome!", isPresented: $presentAlert, actions: {
+                    Button("OK", role: .cancel, action: {})
+                }, message: {
+                    Text("Item added to your order.")
+                })
             }
         }
         .background(Color("LightGrayBackground"))
-        .navigationBarBackButtonHidden(true)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView().environmentObject(ViewRouter())
+        DetailView(isDetailViewShown: Binding.constant(true)).environmentObject(ViewRouter())
     }
 }

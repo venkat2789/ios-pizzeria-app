@@ -15,5 +15,4 @@ enum Page {
     case menu
     case favorites
     case order
-    case detail
 }

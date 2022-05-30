@@ -32,9 +32,6 @@ struct MainView: View {
         case .order:
             OrderView()
                 .transition(.scale)
-        case .detail:
-            DetailView()
-                .transition(.scale)
         }
     }
 }
