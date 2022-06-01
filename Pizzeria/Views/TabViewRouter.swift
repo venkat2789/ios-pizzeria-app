@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabViewRouter: View {
     @State private var selectedTab = 0 //useful for programmatically switching tabs
+    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
         TabView (selection: $selectedTab) {
@@ -24,7 +25,7 @@ struct TabViewRouter: View {
                         Text("Rewards")
                     }
                     .tag(1)
-                MenuView()
+                MenuView(items: modelData.pizzas)
                     .tabItem {
                         Image(systemName: "plus")
                         Text("Menu")

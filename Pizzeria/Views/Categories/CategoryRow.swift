@@ -18,11 +18,11 @@ struct CategoryRow: View {
                 .padding(.top, 10)
             ScrollView(.horizontal, showsIndicators: false){
                 HStack(alignment: .top, spacing: 0) {
-                    ForEach(items) { pizaa in
+                    ForEach(items) { pizza in
                         NavigationLink {
-//                            LandmarkDetail(landmark: landmark)
+                            DetailView(pizza: pizza)
                         } label: {
-                            CategoryItem(pizza: pizaa)
+                            CategoryItem(pizza: pizza)
                         }
                     }
                 }

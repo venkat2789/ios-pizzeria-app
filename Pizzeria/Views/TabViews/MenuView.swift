@@ -9,16 +9,16 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @State private var isDetailViewShown = false
+    var items: [Pizza]
     
     var body: some View {
         VStack{
             NavigationView {
-                List(1...3, id: \.self) { index in
-                    NavigationLink(destination: DetailView(isDetailViewShown: $isDetailViewShown), isActive: $isDetailViewShown,
+                List(1...2, id: \.self) { index in
+                    NavigationLink(destination: DetailView(pizza: items[index]),
                         label: {
                             Text("Item #\(index)")
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
                     })
                 }
                 .navigationBarBackButtonHidden(true)
@@ -29,7 +29,9 @@ struct MenuView: View {
 }
 
 struct MenuView_Previews: PreviewProvider {
+    static var pizzas = ModelData().pizzas
+    
     static var previews: some View {
-        MenuView().environmentObject(ViewRouter())
+        MenuView(items: Array(pizzas.prefix(3))).environmentObject(ViewRouter())
     }
 }

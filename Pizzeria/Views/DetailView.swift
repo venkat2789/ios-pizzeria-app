@@ -16,43 +16,40 @@ struct DetailView: View {
     @State private var selectedPizzaIndex = 1
     @State private var numberOfSlices = 1
     @State private var crustType = 1
-    @State private var isIngredientExpanded : Bool = true
     @State private var presentAlert = false
-    @Binding var isDetailViewShown: Bool
+    
+    var pizza: Pizza
     
     var body: some View {
-        VStack{
+        VStack(alignment: .leading) {
             Image("pizza-placeholder")
                 .resizable()
-                .ignoresSafeArea(edges: .top)
+                .aspectRatio(3/2, contentMode: .fill)
+//                .ignoresSafeArea(edges: .top)
                 .frame(height: 200)
+                .padding(.bottom)
             
-            HStack {
-                Button(action: {
-                    isDetailViewShown = false
-                }) {
-                    Image(systemName: "arrow.backward.circle.fill")
-                        .foregroundColor(.red)
-                    Text("Back to menu")
-                        .foregroundColor(.red)
-                        .font(.subheadline)
-                        .padding(.leading, -5)
-                }
-                .padding(.leading)
-                Spacer()
+//            BackToMenu()
+            HStack(spacing: -8) {
+                Text(pizza.name)
+                    .font(.title2)
+                    .bold()
+                Text("🍕")
+                    .font(.title)
+                    .padding(.top, -20)
             }
-            
+            .padding()
             
             ScrollView{
-                DisclosureGroup("Ingredients", isExpanded: $isIngredientExpanded) {
-                    Text("These are the ingredients.These are the ingre dients. These are the ingredients. These are the ingredients.")
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(.black)
-                        .font(.caption)
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Ingredients")
+                        .font(.headline)
+                    Text("These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.")
+                            .multilineTextAlignment(.leading)
+                            .font(.caption)
                 }
-                .padding()
-                .foregroundColor(.black)
-                .accentColor(.red)
+                .padding(.leading)
+                .padding(.trailing)
                 
                 NavigationView {
                     Form {
@@ -120,6 +117,24 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(isDetailViewShown: Binding.constant(true)).environmentObject(ViewRouter())
+        DetailView(pizza: ModelData().pizzas[0]).environmentObject(ViewRouter())
+    }
+}
+
+struct BackToMenu: View {
+    var body: some View {
+        HStack {
+            Button(action: {
+            }) {
+                Image(systemName: "arrow.backward.circle.fill")
+                    .foregroundColor(.red)
+                Text("Back to menu")
+                    .foregroundColor(.red)
+                    .font(.subheadline)
+                    .padding(.leading, -5)
+            }
+            .padding(.leading)
+            Spacer()
+        }
     }
 }
