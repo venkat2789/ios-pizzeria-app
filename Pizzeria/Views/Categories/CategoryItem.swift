@@ -16,12 +16,21 @@ struct CategoryItem: View {
                 .resizable()
                 .frame(width: 155, height: 155)
                 .cornerRadius(5)
-            Text(pizza.name)
-                .foregroundColor(.primary)
-                .font(.caption)
+            HStack(spacing: 1) {
+                Text(pizza.name)
+                    .foregroundColor(.primary)
+                    .font(.caption)
                 .bold()
+                Image(systemName: "flame.circle")
+                    .font(.subheadline)
+                    .foregroundColor(.red)
+                Image(systemName: "leaf.circle")
+                    .font(.subheadline)
+                    .foregroundColor(.green)
+            }
         }
         .padding(.leading, 15)
+        .frame(width: 170)
     }
 }
 

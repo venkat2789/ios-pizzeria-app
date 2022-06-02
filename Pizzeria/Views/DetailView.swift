@@ -30,13 +30,13 @@ struct DetailView: View {
                 .padding(.bottom)
             
 //            BackToMenu()
-            HStack(spacing: -8) {
+            HStack(spacing: -5) {
                 Text(pizza.name)
                     .font(.title2)
                     .bold()
                 Text("🍕")
                     .font(.title)
-                    .padding(.top, -20)
+                    .padding(.top, -15)
             }
             .padding()
             
@@ -46,7 +46,7 @@ struct DetailView: View {
                         .font(.headline)
                     Text("These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.")
                             .multilineTextAlignment(.leading)
-                            .font(.caption)
+                            .font(.subheadline)
                 }
                 .padding(.leading)
                 .padding(.trailing)
