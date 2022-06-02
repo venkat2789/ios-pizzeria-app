@@ -22,7 +22,7 @@ struct CategoryHome: View {
                     
                     Text("Select from our amazing categories of pizza below or view the full menu.")
                         .font(.title3)
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 20)
                 }
                 .padding(.leading, 10)
                 .padding(.trailing, 10)

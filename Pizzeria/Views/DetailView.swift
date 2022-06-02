@@ -30,15 +30,15 @@ struct DetailView: View {
                 .padding(.bottom)
             
 //            BackToMenu()
-            HStack(spacing: -5) {
+            HStack(spacing: -2) {
                 Text(pizza.name)
                     .font(.title2)
                     .bold()
                 Text("🍕")
                     .font(.title)
-                    .padding(.top, -10)
+                    .padding(.top, -8)
             }
-            .padding(10)
+            .padding(15)
             
             ScrollView{
                 DisclosureGroup {

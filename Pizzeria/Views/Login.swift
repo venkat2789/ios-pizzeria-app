@@ -20,11 +20,6 @@ struct Login: View {
     var body: some View {
         ZStack {
             VStack {
-                Text("Welcome!")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .padding(.bottom, 20)
-                
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .foregroundColor(.red)
