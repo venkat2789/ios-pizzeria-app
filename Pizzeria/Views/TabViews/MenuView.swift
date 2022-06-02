@@ -15,12 +15,14 @@ struct MenuView: View {
     
     var body: some View {
         VStack{
-            Text("All Pizzas")
-                .font(.title3)
-                .bold()
-                .foregroundColor(.red)
             NavigationView {
                 ScrollView {
+                    Text("All Pizzas")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(.red)
+                        .padding()
+                    
                     LazyVGrid(columns: columns, spacing: 15){
                         ForEach(items) { pizza in
                             NavigationLink(destination: DetailView(pizza: pizza),
@@ -40,8 +42,8 @@ struct MenuView: View {
                     }
                 }
                 .navigationBarBackButtonHidden(true)
-//                .navigationTitle("All Pizzas")
-//                .navigationBarTitleDisplayMode(.inline)
+                //                .navigationTitle("All Pizzas")
+                //                .navigationBarTitleDisplayMode(.inline)
                 .navigationBarHidden(true)
             }
         }

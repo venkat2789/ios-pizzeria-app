@@ -16,7 +16,7 @@ struct CategoryItem: View {
                 .resizable()
                 .frame(width: 155, height: 155)
                 .cornerRadius(5)
-            HStack(spacing: 1) {
+            HStack(spacing: 3) {
                 Text(pizza.name)
                     .foregroundColor(.primary)
                     .font(.caption)
