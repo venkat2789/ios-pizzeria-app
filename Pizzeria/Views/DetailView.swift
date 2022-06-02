@@ -36,20 +36,20 @@ struct DetailView: View {
                     .bold()
                 Text("🍕")
                     .font(.title)
-                    .padding(.top, -15)
+                    .padding(.top, -10)
             }
-            .padding()
+            .padding(10)
             
             ScrollView{
-                VStack(alignment: .leading, spacing: 10) {
+                DisclosureGroup {
+                    Text("These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.")
+                        .font(.subheadline)
+                } label: {
                     Text("Ingredients")
                         .font(.headline)
-                    Text("These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.")
-                            .multilineTextAlignment(.leading)
-                            .font(.subheadline)
                 }
-                .padding(.leading)
-                .padding(.trailing)
+                .padding(10)
+                .foregroundColor(.primary)
                 
                 NavigationView {
                     Form {
