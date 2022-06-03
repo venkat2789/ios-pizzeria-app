@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabViewRouter: View {
-    @State private var selectedTab = 0 //useful for programmatically switching tabs
+    @State private var selectedTab = 0 //for programmatic switching
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {

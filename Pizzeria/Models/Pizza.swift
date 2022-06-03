@@ -19,9 +19,9 @@ struct Pizza: Hashable, Codable, Identifiable {
     
     var category: Category
     enum Category: String, CaseIterable, Codable {
-        case lakes = "Our Picks"
-        case rivers = "Fan Favorites"
-        case mountains = "Meatless Specials"
+        case other = "Other Top Picks"
+        case fan = "Fan Favorites"
+        case meatless = "Meatless Specials"
     }
     
     //image
@@ -35,18 +35,4 @@ struct Pizza: Hashable, Codable, Identifiable {
         isFeatured ? Image(imageName + "_feature") : nil
     }
     
-    //coordinates
-    private var coordinates: Coordinates
-    
-    struct Coordinates: Hashable, Codable {
-        var latitude: Double
-        var longitude: Double
-    }
-    
-    var locationCoordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(
-            latitude: coordinates.latitude,
-            longitude: coordinates.longitude
-        )
-    }
 }

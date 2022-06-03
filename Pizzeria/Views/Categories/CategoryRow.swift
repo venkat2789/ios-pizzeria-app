@@ -16,8 +16,10 @@ struct CategoryRow: View {
                 .font(.headline)
                 .padding(.leading, 15)
                 .padding(.top, 10)
+            
             ScrollView(.horizontal, showsIndicators: false){
                 HStack(alignment: .top, spacing: 0) {
+                    
                     ForEach(items) { pizza in
                         NavigationLink {
                             DetailView(pizza: pizza)
@@ -25,6 +27,7 @@ struct CategoryRow: View {
                             CategoryItem(pizza: pizza)
                         }
                     }
+                    
                 }
             }
             .frame(height: 185)

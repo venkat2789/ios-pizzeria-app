@@ -10,7 +10,7 @@ import Combine
 final class ModelData: ObservableObject {
     @Published var pizzas: [Pizza] = load("pizzaData.json")
     
-    var features: [Pizza] {
+    var featured: [Pizza] {
         pizzas.filter { $0.isFeatured }
     }
     

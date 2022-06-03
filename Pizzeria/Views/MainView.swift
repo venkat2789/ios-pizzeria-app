@@ -16,7 +16,7 @@ struct MainView: View {
             Login()
         case .landing:
             TabViewRouter()
-                .transition(.scale)
+                .transition(.move(edge: .trailing))
         }
     }
 }

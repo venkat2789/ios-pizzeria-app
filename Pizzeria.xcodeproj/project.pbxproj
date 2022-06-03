@@ -76,15 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53421EB828498193004A2AA5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				536EA4C928457AA000C78F1D /* Pizza.swift */,
+				536EA4CA28457AA000C78F1D /* ModelData.swift */,
+				536EA4C828457AA000C78F1D /* pizzaData.json */,
+				53CDB82B283AC5B7000E817B /* Helpers.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		536EA4C128457A5400C78F1D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				536EA4C228457A5400C78F1D /* CategoryItem.swift */,
 				536EA4C428457A5400C78F1D /* CategoryRow.swift */,
 				536EA4C328457A5400C78F1D /* CategoryHome.swift */,
-				536EA4C928457AA000C78F1D /* Pizza.swift */,
-				536EA4CA28457AA000C78F1D /* ModelData.swift */,
-				536EA4C828457AA000C78F1D /* pizzaData.json */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -121,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				53CDB8122839A1BB000E817B /* PizzeriaApp.swift */,
-				53CDB82B283AC5B7000E817B /* Helpers.swift */,
+				53421EB828498193004A2AA5 /* Models */,
 				53CDB835283AE307000E817B /* Views */,
 				53CDB8162839A1D1000E817B /* Assets.xcassets */,
 				53CDB836283AE324000E817B /* Core Data */,
