@@ -8,39 +8,28 @@
 import SwiftUI
 
 struct AccountSheet: View {
-    @Environment(\.presentationMode) private var presentationMode
+    @State var name: String = ""
+    @State var phoneNumber: String = ""
+    @State var email: String = ""
     
     var body: some View {
         VStack {
             NavigationView {
-                Form {
-                    Section(header: Text("Contact Details")) {
-                        Text("Name")
-                        Text("Contact")
-                    }
-//                    Section(header: Text("ABOUT")) {
-//                        HStack {
-//                            Text("App Version")
-//                            Spacer()
-//                            Text("1.0.0")
-//                        }
-//                    }
-                    
-                }
-                .navigationTitle("Profile")
+                UserInfoForm(name: $name, phoneNumber: $phoneNumber, email: $email)
             }
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()//close order sheet
-            }) {
-                Text("Save")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 150, height: 45)
-                    .background(Color.red)
-                    .cornerRadius(15.0)
-            }
+            .frame(height: 325)
+            
+            SaveButton()
+            
             Spacer()
+            
+            HStack {
+                Text("App Version")
+                Text("1.0.1")
+            }
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+            
         }
         .background(Color("LightGrayBackground"))
     }
@@ -49,5 +38,40 @@ struct AccountSheet: View {
 struct AccountSheet_Previews: PreviewProvider {
     static var previews: some View {
         AccountSheet()
+    }
+}
+
+struct SaveButton: View {
+    @Environment(\.presentationMode) private var presentationMode
+    
+    var body: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()//close order sheet
+        }) {
+            Text("Save")
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 150, height: 45)
+                .background(Color.red)
+                .cornerRadius(15.0)
+        }
+    }
+}
+
+struct UserInfoForm: View {
+    @Binding var name: String
+    @Binding var phoneNumber: String
+    @Binding var email: String
+    
+    var body: some View {
+        Form {
+            Section(header: Text("Contact Details")) {
+                TextField("Name", text: $name)
+                TextField("Mobile", text: $phoneNumber)
+                TextField("Email", text: $email)
+            }
+        }
+        .navigationTitle("Profile")
     }
 }

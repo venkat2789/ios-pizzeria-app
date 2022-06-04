@@ -16,7 +16,11 @@ struct Login: View {
     var body: some View {
         ZStack {
             VStack {
+                Spacer()
+                
                 BrandLogo()
+                
+                Spacer()
                 
                 UserName(username: $username)
                 

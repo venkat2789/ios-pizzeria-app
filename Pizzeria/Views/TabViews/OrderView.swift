@@ -18,31 +18,18 @@ struct OrderView: View {
             List {
                 ForEach(orders) { order in
                     HStack {
-                        Image("pizza-placeholder")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                        VStack(alignment: .leading) {
-                            Text("\(order.pizzaType)")
-                                .font(.headline)
-                            Text(" - \(order.numberOfSlices) slices")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
+                        PizzaInfo(order: order)
+                        
                         Spacer()
+                        
 //                        Button(action: {
 //                            updateOrder(order: order)
 //                        }) {
 //                            Text(order.orderStatus == .pending ? "Prepare" : "Complete")
 //                                .foregroundColor(.blue)
 //                        }
-                        VStack {
-                            Text("$ 19.99")
-                                .font(.subheadline)
-                            Text("$ 24.99")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                                .strikethrough()
-                        }
+                        
+                        Price()
                     }
                     .frame(height: 100)
                 }
@@ -84,5 +71,37 @@ struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
         OrderView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+struct PizzaInfo: View {
+    var order: PizzaOrder
+    
+    var body: some View {
+        Group {
+            Image("pizza-placeholder")
+                .resizable()
+                .frame(width: 50, height: 50)
+            VStack(alignment: .leading) {
+                Text("\(order.pizzaType)")
+                    .font(.headline)
+                Text(" - \(order.numberOfSlices) slices")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+        }
+    }
+}
+
+struct Price: View {
+    var body: some View {
+        VStack {
+            Text("$ 19.99")
+                .font(.subheadline)
+            Text("$ 24.99")
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .strikethrough()
+        }
     }
 }

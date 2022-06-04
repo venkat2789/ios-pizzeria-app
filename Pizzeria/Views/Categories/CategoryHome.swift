@@ -41,7 +41,7 @@ struct CategoryHome_Previews: PreviewProvider {
 
 struct WelcomeMessage: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 10.0) {
+        VStack(alignment: .leading, spacing: 20.0) {
             Text("Welcome,")
                 .font(.title)
                 .bold()
@@ -51,7 +51,5 @@ struct WelcomeMessage: View {
                 .font(.headline)
                 .padding(.bottom, 20)
         }
-        .padding(.leading, 10)
-        .padding(.trailing, 10)
     }
 }
