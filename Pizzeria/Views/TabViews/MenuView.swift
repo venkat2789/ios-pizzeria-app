@@ -17,11 +17,17 @@ struct MenuView: View {
         VStack{
             NavigationView {
                 ScrollView {
-                    Text("All Pizzas")
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.red)
-                        .padding()
+                    VStack {
+                        Text("All Pizzas")
+                            .font(.title3)
+                            .bold()
+                            .foregroundColor(.red)
+                        Text("An amazing pizza quote here.")
+                            .font(.subheadline)
+                            .bold()
+                            .foregroundColor(.secondary)
+                    }
+                    .padding()
                     
                     LazyVGrid(columns: columns, spacing: 15){
                         ForEach(items) { pizza in
@@ -41,9 +47,6 @@ struct MenuView: View {
                         }
                     }
                 }
-                .navigationBarBackButtonHidden(true)
-                //                .navigationTitle("All Pizzas")
-                //                .navigationBarTitleDisplayMode(.inline)
                 .navigationBarHidden(true)
             }
         }

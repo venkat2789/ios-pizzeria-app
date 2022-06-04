@@ -25,11 +25,12 @@ struct DetailView: View {
             Image("pizza-placeholder")
                 .resizable()
                 .aspectRatio(3/2, contentMode: .fill)
-//                .ignoresSafeArea(edges: .top)
+                .ignoresSafeArea(edges: .top)
                 .frame(height: 200)
                 .padding(.bottom)
             
-//            BackToMenu()
+            BackToMenu()
+            
             HStack(spacing: -2) {
                 Text(pizza.name)
                     .font(.title2)
@@ -38,7 +39,7 @@ struct DetailView: View {
                     .font(.title)
                     .padding(.top, -8)
             }
-            .padding(15)
+            .padding(.leading, 10)
             
             ScrollView{
                 DisclosureGroup {
@@ -48,7 +49,8 @@ struct DetailView: View {
                     Text("Ingredients")
                         .font(.headline)
                 }
-                .padding(10)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
                 .foregroundColor(.primary)
                 
                 NavigationView {
@@ -58,11 +60,12 @@ struct DetailView: View {
                                 ForEach(0 ..< pizzaTypes.count, id:\.self) {
                                     Text(self.pizzaTypes[$0]).tag($0)
                                 }
+                                //.navigationBarBackButtonHidden(true)
                             }
                             
                             Stepper("\(numberOfSlices) Slices", value: $numberOfSlices, in: 1...12)
                         }
-                        .navigationBarBackButtonHidden(true)
+
                         Section(header: Text("Crust")) {
                             Picker("Crust", selection: $crustType) {
                                 ForEach(0 ..< crustTypes.count, id:\.self) {
@@ -74,7 +77,6 @@ struct DetailView: View {
                     }
                     .navigationTitle("Customize")
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarBackButtonHidden(true)
                 }
                 .frame(height: 400, alignment: .center)
                 
@@ -112,6 +114,7 @@ struct DetailView: View {
             }
         }
         .background(Color("LightGrayBackground"))
+        .navigationBarHidden(true)
     }
 }
 
@@ -122,19 +125,19 @@ struct DetailView_Previews: PreviewProvider {
 }
 
 struct BackToMenu: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
-        HStack {
             Button(action: {
+                presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "arrow.backward.circle.fill")
                     .foregroundColor(.red)
-                Text("Back to menu")
+                Text("Back")
                     .foregroundColor(.red)
-                    .font(.subheadline)
+                    .font(.callout)
                     .padding(.leading, -5)
             }
-            .padding(.leading)
-            Spacer()
-        }
+            .padding(10)
     }
 }
