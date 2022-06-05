@@ -19,7 +19,7 @@ struct PersistenceController {
             newItem.id = UUID()
             newItem.pizzaType = "Margherita"
             newItem.numberOfSlices = 4
-            newItem.price = 1.99
+            newItem.price = 2.00
         }
         do {
             try viewContext.save()

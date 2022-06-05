@@ -2,7 +2,7 @@
     {
         "name": "Pizza Margherita",
         "category": "Other Top Picks",
-        "price": "1.99",
+        "price": "1.00",
         "state": "California",
         "id": 1001,
         "isFeatured": true,
@@ -14,7 +14,7 @@
     {
         "name": "Greek Pizza",
         "category": "Other Top Picks",
-        "price": "1.49",
+        "price": "2.00",
         "state": "Alaska",
         "id": 1002,
         "isFeatured": false,
@@ -26,7 +26,7 @@
     {
         "name": "Pizza Supreme",
         "category": "Other Top Picks",
-        "price": "1.99",
+        "price": "1.50",
         "state": "Alaska",
         "id": 1003,
         "isFeatured": false,
@@ -38,7 +38,7 @@
     {
         "name": "Pizza California",
         "category": "Fan Favorites",
-        "price": "2.49",
+        "price": "2.50",
         "state": "Montana",
         "id": 1004,
         "isFeatured": true,
@@ -50,7 +50,7 @@
     {
         "name": "New York Pizza",
         "category": "Fan Favorites",
-        "price": "1.99",
+        "price": "3.00",
         "state": "Alaska",
         "id": 1005,
         "isFeatured": false,
@@ -62,7 +62,7 @@
     {
         "name": "Pizza Hawaiian",
         "category": "Meatless Specials",
-        "price": "2.99",
+        "price": "1.50",
         "state": "Alaska",
         "id": 1005,
         "isFeatured": false,

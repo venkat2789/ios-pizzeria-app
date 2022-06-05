@@ -15,47 +15,55 @@ struct OrderView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(orders) { order in
-                    HStack {
-                        PizzaInfo(order: order)
-                        
-                        Spacer()
-                        
-//                        Button(action: {
-//                            updateOrder(order: order)
-//                        }) {
-//                            Text(order.orderStatus == .pending ? "Prepare" : "Complete")
-//                                .foregroundColor(.blue)
-//                        }
-                        
-                        Price(order: order)
+            VStack {
+                List {
+                    ForEach(orders) { order in
+                        HStack {
+                            PizzaInfo(order: order)
+                            
+                            Spacer()
+                            
+                            //                        Button(action: {
+                            //                            updateOrder(order: order)
+                            //                        }) {
+                            //                            Text(order.orderStatus == .pending ? "Prepare" : "Complete")
+                            //                                .foregroundColor(.blue)
+                            //                        }
+                            
+                            Price(order: order)
+                        }
+                        .frame(height: 100)
                     }
-                    .frame(height: 100)
+                    .onDelete { indexSet in
+                        for index in indexSet {
+                            viewContext.delete(orders[index])
+                        }
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
                 }
-                .onDelete { indexSet in
-                    for index in indexSet {
-                        viewContext.delete(orders[index])
-                    }
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                .listStyle(PlainListStyle())
+                .navigationTitle("My Order")
+                .navigationBarItems(trailing: Button(action: {
+                    showAccountInfoSheet = true
+                }, label: {
+                    Image(systemName: "person.circle")
+                        .imageScale(.large)
+                }))
+                .sheet(isPresented: $showAccountInfoSheet){
+                    AccountSheet()
                 }
+                
+                Total(orders: orders)
+                
+                PlaceOrder()
             }
-            .listStyle(PlainListStyle())
-            .navigationTitle("My Order")
-            .navigationBarItems(trailing: Button(action: {
-                showAccountInfoSheet = true
-            }, label: {
-                Image(systemName: "person.circle")
-                    .imageScale(.large)
-            }))
-            .sheet(isPresented: $showAccountInfoSheet){
-                AccountSheet()
-            }
+            
         }
+        
     }
     
 //    func updateOrder(order: PizzaOrder) {
@@ -95,27 +103,82 @@ struct PizzaInfo: View {
 
 struct Price: View {
     var order: PizzaOrder
-    let couponApplied: Bool = true
+    let couponApplied: Bool = false
+    let couponValue = 0.50 //to be made dynamic
     
     var body: some View {
-        let pizzaPrice = order.price * Double(order.numberOfSlices)
-        
         VStack {
             if(couponApplied){
-                let couponPrice = pizzaPrice - (pizzaPrice * 0.20)
-                let roundedCouponPrice = round(couponPrice * 100)/100.0
-                Text(String("$\(roundedCouponPrice)"))
+                Text("$" + String(format: "%.2f", calcCouponPrice(order: order, couponValue: couponValue)))
                     .font(.subheadline)
                 
-                Text(String("$\(pizzaPrice)"))
+                Text("$" + String(format: "%.2f",  calcRoundedPrice(order: order)))
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .strikethrough()
             } else {
-                let roundedPrice = round(pizzaPrice * 100)/100.0
-                Text(String("$\(roundedPrice)"))
+                Text("$" + String(format: "%.2f", calcRoundedPrice(order: order)))
                     .font(.subheadline)
             }
         }
+    }
+    
+    func calcRoundedPrice(order: PizzaOrder) -> Double {
+        let pizzaPrice = order.price * Double(order.numberOfSlices)
+        let roundedPrice = round(pizzaPrice * 100)/100.00
+        
+        return roundedPrice
+    }
+    
+    func calcCouponPrice(order: PizzaOrder, couponValue: Double) -> Double {
+        let pizzaPrice = order.price * Double(order.numberOfSlices)
+        let couponPrice = pizzaPrice - (pizzaPrice * couponValue)
+        let roundedCouponPrice = round(couponPrice * 100)/100.00
+        
+        return roundedCouponPrice
+    }
+}
+
+struct Total: View {
+    var orders: FetchedResults<PizzaOrder>
+    
+    var body: some View {
+        HStack {
+            Text("Total")
+                .font(.headline)
+            
+            Spacer()
+            
+            Text("$" + String(format: "%.2f", calcTotal(orders: orders)))
+                .font(.headline)
+        }
+        .padding()
+    }
+    
+    func calcTotal(orders: FetchedResults<PizzaOrder>) -> Double {
+        var totalPrice = 0.00
+        
+        orders.forEach { order in
+            let pizzaPrice = order.price * Double(order.numberOfSlices)
+            totalPrice += pizzaPrice
+        }
+        let roundedTotalPrice = round(totalPrice * 100)/100.0
+        
+        return roundedTotalPrice
+    }
+}
+
+struct PlaceOrder: View {
+    var body: some View {
+        Button(action: {}) {
+            Text("Place Order")
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 150, height: 45)
+                .background(Color.red)
+                .cornerRadius(15.0)
+        }
+        .padding()
     }
 }
