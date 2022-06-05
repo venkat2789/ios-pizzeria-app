@@ -2,7 +2,7 @@
     {
         "name": "Pizza Margherita",
         "category": "Other Top Picks",
-        "city": "Twentynine Palms",
+        "price": "1.99",
         "state": "California",
         "id": 1001,
         "isFeatured": true,
@@ -14,7 +14,7 @@
     {
         "name": "Greek Pizza",
         "category": "Other Top Picks",
-        "city": "Port Alsworth",
+        "price": "1.49",
         "state": "Alaska",
         "id": 1002,
         "isFeatured": false,
@@ -26,7 +26,7 @@
     {
         "name": "Pizza Supreme",
         "category": "Other Top Picks",
-        "city": "Skagway",
+        "price": "1.99",
         "state": "Alaska",
         "id": 1003,
         "isFeatured": false,
@@ -38,7 +38,7 @@
     {
         "name": "Pizza California",
         "category": "Fan Favorites",
-        "city": "Browning",
+        "price": "2.49",
         "state": "Montana",
         "id": 1004,
         "isFeatured": true,
@@ -50,7 +50,7 @@
     {
         "name": "New York Pizza",
         "category": "Fan Favorites",
-        "city": "Twin Lakes",
+        "price": "1.99",
         "state": "Alaska",
         "id": 1005,
         "isFeatured": false,
@@ -62,7 +62,7 @@
     {
         "name": "Pizza Hawaiian",
         "category": "Meatless Specials",
-        "city": "Twin Lakes",
+        "price": "2.99",
         "state": "Alaska",
         "id": 1005,
         "isFeatured": false,

@@ -16,6 +16,7 @@ struct Pizza: Hashable, Codable, Identifiable {
     var description: String
     var isFavorite: Bool
     var isFeatured: Bool
+    var price: String
     
     var category: Category
     enum Category: String, CaseIterable, Codable {

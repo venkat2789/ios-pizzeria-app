@@ -20,6 +20,7 @@ extension PizzaOrder {
     @NSManaged public var pizzaType: String
     @NSManaged public var numberOfSlices: Int16
     @NSManaged public var status: String
+    @NSManaged public var price: Double
         
         var orderStatus: Status {
             set {

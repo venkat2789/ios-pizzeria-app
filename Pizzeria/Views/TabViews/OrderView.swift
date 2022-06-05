@@ -29,7 +29,7 @@ struct OrderView: View {
 //                                .foregroundColor(.blue)
 //                        }
                         
-                        Price()
+                        Price(order: order)
                     }
                     .frame(height: 100)
                 }
@@ -94,14 +94,28 @@ struct PizzaInfo: View {
 }
 
 struct Price: View {
+    var order: PizzaOrder
+    let couponApplied: Bool = true
+    
     var body: some View {
+        let pizzaPrice = order.price * Double(order.numberOfSlices)
+        
         VStack {
-            Text("$ 19.99")
-                .font(.subheadline)
-            Text("$ 24.99")
-                .font(.caption)
-                .foregroundColor(.secondary)
-                .strikethrough()
+            if(couponApplied){
+                let couponPrice = pizzaPrice - (pizzaPrice * 0.20)
+                let roundedCouponPrice = round(couponPrice * 100)/100.0
+                Text(String("$\(roundedCouponPrice)"))
+                    .font(.subheadline)
+                
+                Text(String("$\(pizzaPrice)"))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .strikethrough()
+            } else {
+                let roundedPrice = round(pizzaPrice * 100)/100.0
+                Text(String("$\(roundedPrice)"))
+                    .font(.subheadline)
+            }
         }
     }
 }

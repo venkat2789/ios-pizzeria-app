@@ -34,7 +34,7 @@ struct DetailView: View {
                 }
                 .frame(height: 400, alignment: .center)
                 
-                AddToOrder(selectedPizzaIndex: $selectedPizzaIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizzaTypes: pizzaTypes, crustTypes: crustTypes)
+                AddToOrder(selectedPizzaIndex: $selectedPizzaIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizza: pizza, pizzaTypes: pizzaTypes, crustTypes: crustTypes)
             }
         }
         .background(Color("LightGrayBackground"))
@@ -148,6 +148,7 @@ struct AddToOrder: View {
     @Binding var numberOfSlices: Int
     @Binding var presentAlert: Bool
     
+    var pizza: Pizza
     var pizzaTypes: [String]
     var crustTypes: [String]
     
@@ -158,6 +159,7 @@ struct AddToOrder: View {
             newOrder.orderStatus = .pending
             newOrder.numberOfSlices = Int16(self.numberOfSlices)
             newOrder.id = UUID()
+            newOrder.price = Double(pizza.price) ?? 0.00
             
             do {
                 try viewContext.save()
