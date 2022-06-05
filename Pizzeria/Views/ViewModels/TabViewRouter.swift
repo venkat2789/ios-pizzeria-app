@@ -11,6 +11,10 @@ struct TabViewRouter: View {
     @State private var selectedTab = 0 //for programmatic switching
     @EnvironmentObject var modelData: ModelData
     
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [], predicate: NSPredicate(format: "status != %@", Status.completed.rawValue))
+    var orders: FetchedResults<PizzaOrder>
+    
     var body: some View {
         TabView (selection: $selectedTab) {
                 Home()
@@ -38,7 +42,7 @@ struct TabViewRouter: View {
                     }
                     .tag(3)
                 OrderView()
-                    .badge(1)
+                    .badge(orders.count)
                     .tabItem {
                         Image(systemName: "creditcard")
                         Text("My Order")
