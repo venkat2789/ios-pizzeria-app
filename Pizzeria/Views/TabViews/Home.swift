@@ -1,12 +1,12 @@
 //
-//  CategoryHome.swift
+//  Home.swift
 //
 //  Created by Venkatachalapathy Sivaprakasam on 5/16/22.
 //
 
 import SwiftUI
 
-struct CategoryHome: View {
+struct Home: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var modelData: ModelData
     
@@ -31,9 +31,9 @@ struct CategoryHome: View {
     }
 }
 
-struct CategoryHome_Previews: PreviewProvider {
+struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryHome()
+        Home()
             .environmentObject(ModelData())
             .environmentObject(ViewRouter())
     }

@@ -13,7 +13,7 @@ struct TabViewRouter: View {
     
     var body: some View {
         TabView (selection: $selectedTab) {
-                CategoryHome()
+                Home()
                     .tabItem {
                         Image(systemName: "house")
                         Text("Home")
