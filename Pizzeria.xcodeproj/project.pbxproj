@@ -85,6 +85,27 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		53641DDC284D178D005A92D6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				53CDB82D283AC7B6000E817B /* ViewRouter.swift */,
+				53CDB829283AC54D000E817B /* MainView.swift */,
+				53917100283EE07700413E74 /* TabViewRouter.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		53641DDD284D17A4005A92D6 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				53CDB8252839A353000E817B /* Login.swift */,
+				53CDB839283B1372000E817B /* DetailView.swift */,
+				53CDB83B283B312C000E817B /* AccountSheet.swift */,
+				53917105283EFF2A00413E74 /* TabViewForIntro.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		536EA4C128457A5400C78F1D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,15 +167,10 @@
 		53CDB835283AE307000E817B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				536EA4C128457A5400C78F1D /* Categories */,
-				53CDB8252839A353000E817B /* Login.swift */,
-				53CDB82D283AC7B6000E817B /* ViewRouter.swift */,
-				53CDB829283AC54D000E817B /* MainView.swift */,
-				53917100283EE07700413E74 /* TabViewRouter.swift */,
+				53641DDC284D178D005A92D6 /* ViewModels */,
 				53917104283EEB1C00413E74 /* TabViews */,
-				53CDB839283B1372000E817B /* DetailView.swift */,
-				53CDB83B283B312C000E817B /* AccountSheet.swift */,
-				53917105283EFF2A00413E74 /* TabViewForIntro.swift */,
+				536EA4C128457A5400C78F1D /* Categories */,
+				53641DDD284D17A4005A92D6 /* Others */,
 			);
 			path = Views;
 			sourceTree = "<group>";
