@@ -40,9 +40,11 @@ struct Home_Previews: PreviewProvider {
 }
 
 struct WelcomeMessage: View {
+    @AppStorage("user_name") var user_name = ""
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20.0) {
-            Text("Welcome,")
+            Text("Welcome, \(user_name)")
                 .font(.title)
                 .bold()
                 .padding(.top, 20)

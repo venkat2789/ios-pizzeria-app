@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AccountSheet: View {
-    @State var name: String = ""
-    @State var phoneNumber: String = ""
-    @State var email: String = ""
+    @AppStorage("user_name") var user_name = ""
+    @AppStorage("user_phone_number") var user_phone_number = ""
+    @AppStorage("user_email") var user_email = ""
     
     var body: some View {
         VStack {
             NavigationView {
-                UserInfoForm(name: $name, phoneNumber: $phoneNumber, email: $email)
+                UserInfoForm(name: $user_name, phoneNumber: $user_phone_number, email: $user_email)
             }
             .frame(height: 325)
             
@@ -25,10 +25,11 @@ struct AccountSheet: View {
             
             HStack {
                 Text("App Version")
-                Text("1.0.1")
+                Text("1.0.0")
             }
             .font(.subheadline)
             .foregroundColor(.secondary)
+            .padding()
             
         }
         .background(Color("LightGrayBackground"))
@@ -68,8 +69,15 @@ struct UserInfoForm: View {
         Form {
             Section(header: Text("Contact Details")) {
                 TextField("Name", text: $name)
+                    .textInputAutocapitalization(.words)
+                    .disableAutocorrection(true)
+                    .keyboardType(.default)
                 TextField("Mobile", text: $phoneNumber)
+                    .keyboardType(.phonePad)
                 TextField("Email", text: $email)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .keyboardType(.emailAddress)
             }
         }
         .navigationTitle("Profile")
