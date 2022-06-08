@@ -7,11 +7,18 @@
 
 import SwiftUI
 
+let couponValue = 0.50 //to be made dynamic
+let validCouponCode = "GET50OFF"
+
 struct OrderView: View {
+    @AppStorage("coupon_code") var coupon_code = ""
     @Environment(\.managedObjectContext) private var viewContext
+    
     @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [], predicate: NSPredicate(format: "status != %@", Status.completed.rawValue))
     var orders: FetchedResults<PizzaOrder>
+    
     @State var showAccountInfoSheet: Bool = false
+    @State var couponApplied: Bool = false
     
     var body: some View {
         NavigationView {
@@ -30,7 +37,7 @@ struct OrderView: View {
                             //                                .foregroundColor(.blue)
                             //                        }
                             
-                            Price(order: order)
+                            Price(couponApplied: $couponApplied, order: order)
                         }
                         .frame(height: 100)
                     }
@@ -44,6 +51,9 @@ struct OrderView: View {
                             print(error.localizedDescription)
                         }
                     }
+                    
+                    ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
+                    
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("My Order")
@@ -57,7 +67,7 @@ struct OrderView: View {
                     AccountSheet()
                 }
                 
-                Total(orders: orders)
+                Total(couponApplied: $couponApplied, orders: orders)
                 
                 PlaceOrder()
             }
@@ -102,9 +112,8 @@ struct PizzaInfo: View {
 }
 
 struct Price: View {
+    @Binding var couponApplied: Bool
     var order: PizzaOrder
-    let couponApplied: Bool = false
-    let couponValue = 0.50 //to be made dynamic
     
     var body: some View {
         VStack {
@@ -124,6 +133,8 @@ struct Price: View {
     }
     
     func calcRoundedPrice(order: PizzaOrder) -> Double {
+        print("Price per slice \(order.price)")
+        print("# of slices \(Double(order.numberOfSlices))")
         let pizzaPrice = order.price * Double(order.numberOfSlices)
         let roundedPrice = round(pizzaPrice * 100)/100.00
         
@@ -140,6 +151,7 @@ struct Price: View {
 }
 
 struct Total: View {
+    @Binding var couponApplied: Bool
     var orders: FetchedResults<PizzaOrder>
     
     var body: some View {
@@ -152,14 +164,18 @@ struct Total: View {
             Text("$" + String(format: "%.2f", calcTotal(orders: orders)))
                 .font(.headline)
         }
-        .padding()
+        .padding(.leading)
+        .padding(.trailing)
     }
     
     func calcTotal(orders: FetchedResults<PizzaOrder>) -> Double {
         var totalPrice = 0.00
         
         orders.forEach { order in
-            let pizzaPrice = order.price * Double(order.numberOfSlices)
+            var pizzaPrice = order.price * Double(order.numberOfSlices)
+            if(couponApplied) {
+                pizzaPrice = pizzaPrice - (pizzaPrice * couponValue)
+            }
             totalPrice += pizzaPrice
         }
         let roundedTotalPrice = round(totalPrice * 100)/100.0
@@ -179,6 +195,52 @@ struct PlaceOrder: View {
                 .background(Color.red)
                 .cornerRadius(15.0)
         }
-        .padding()
+        .padding(.leading)
+        .padding(.trailing)
+        .padding(.bottom)
+    }
+}
+
+struct ApplyCouponCode: View {
+    @Binding var coupon_applied: Bool
+    @Binding var coupon_code: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5.0) {
+            Text("Apply Coupon Code")
+                .font(.headline)
+            
+            HStack {
+                TextField("Code", text: $coupon_code)
+                    .font(.subheadline)
+                    .textInputAutocapitalization(.characters)
+                    .disableAutocorrection(true)
+                    .textFieldStyle(.roundedBorder)
+                
+                Button(action: {
+                    print("Code \(coupon_code)")
+                    if(coupon_code == validCouponCode){
+                        print("Valid coupon")
+                        coupon_applied = true
+                    } else{
+                        print("Invalid coupon")
+                        coupon_applied = false
+                    }
+                    coupon_code = "" //resetting app storage
+
+                }) {
+                    Text("Apply")
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 75, height: 25)
+                        .background(Color.red)
+                        .cornerRadius(15.0)
+                }
+            }
+        }
+        .padding(.top)
+        .padding(.bottom)
     }
 }
