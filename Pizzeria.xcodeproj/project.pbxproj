@@ -15,8 +15,6 @@
 		536EA4CD28457AA000C78F1D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EA4CA28457AA000C78F1D /* ModelData.swift */; };
 		53917101283EE07700413E74 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917100283EE07700413E74 /* TabViewRouter.swift */; };
 		53917106283EFF2A00413E74 /* TabViewForIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917105283EFF2A00413E74 /* TabViewForIntro.swift */; };
-		53AD9405284D6DF300C47C8B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD9404284D6DF300C47C8B /* MapView.swift */; };
-		53AD9408284D74D000C47C8B /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD9407284D74D000C47C8B /* LocationHelper.swift */; };
 		53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB8122839A1BB000E817B /* PizzeriaApp.swift */; };
 		53CDB8172839A1D1000E817B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CDB8162839A1D1000E817B /* Assets.xcassets */; };
 		53CDB81A2839A1D1000E817B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CDB8192839A1D1000E817B /* Preview Assets.xcassets */; };
@@ -37,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		530B4C2928515C9200CC5C0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		536EA4C228457A5400C78F1D /* CategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		536EA4C328457A5400C78F1D /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		536EA4C428457A5400C78F1D /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
@@ -45,9 +44,7 @@
 		536EA4CA28457AA000C78F1D /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		53917100283EE07700413E74 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
 		53917105283EFF2A00413E74 /* TabViewForIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewForIntro.swift; sourceTree = "<group>"; };
-		53AD9404284D6DF300C47C8B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		53AD9406284D744600C47C8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		53AD9407284D74D000C47C8B /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		53CDB80F2839A1BB000E817B /* Pizzeria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pizzeria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CDB8122839A1BB000E817B /* PizzeriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzeriaApp.swift; sourceTree = "<group>"; };
 		53CDB8162839A1D1000E817B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		530B4C2828515C9200CC5C0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				530B4C2928515C9200CC5C0F /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		53421EB828498193004A2AA5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,20 +137,12 @@
 			path = TabViews;
 			sourceTree = "<group>";
 		};
-		53AD940B284D80B000C47C8B /* StoreLocator */ = {
-			isa = PBXGroup;
-			children = (
-				53AD9404284D6DF300C47C8B /* MapView.swift */,
-				53AD9407284D74D000C47C8B /* LocationHelper.swift */,
-			);
-			path = StoreLocator;
-			sourceTree = "<group>";
-		};
 		53CDB8062839A1BA000E817B = {
 			isa = PBXGroup;
 			children = (
 				53CDB8112839A1BB000E817B /* Pizzeria */,
 				53CDB8102839A1BB000E817B /* Products */,
+				530B4C2828515C9200CC5C0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,7 +182,6 @@
 				53641DDC284D178D005A92D6 /* ViewModels */,
 				536EA4C128457A5400C78F1D /* Categories */,
 				53917104283EEB1C00413E74 /* TabViews */,
-				53AD940B284D80B000C47C8B /* StoreLocator */,
 				53641DDD284D17A4005A92D6 /* Others */,
 			);
 			path = Views;
@@ -273,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53AD9408284D74D000C47C8B /* LocationHelper.swift in Sources */,
 				53CDB842283C50A2000E817B /* MenuView.swift in Sources */,
 				536EA4CC28457AA000C78F1D /* Pizza.swift in Sources */,
 				53CDB82E283AC7B6000E817B /* ViewRouter.swift in Sources */,
@@ -283,7 +278,6 @@
 				536EA4C728457A5400C78F1D /* CategoryRow.swift in Sources */,
 				536EA4C628457A5400C78F1D /* Home.swift in Sources */,
 				53CDB838283B130D000E817B /* OrderView.swift in Sources */,
-				53AD9405284D6DF300C47C8B /* MapView.swift in Sources */,
 				53CDB81C2839A1D1000E817B /* Persistence.swift in Sources */,
 				53CDB83A283B1372000E817B /* DetailView.swift in Sources */,
 				53CDB840283C4F8F000E817B /* FavoritesView.swift in Sources */,
@@ -429,10 +423,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pizzeria/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We'll only use your location to show your nearest store";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We'll only use your location to show your nearest store";
-				INFOPLIST_KEY_NSLocationUsageDescription = "We'll only use your location to show your nearest store";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We'll only use your location to show your nearest store";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -463,10 +453,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pizzeria/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We'll only use your location to show your nearest store";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We'll only use your location to show your nearest store";
-				INFOPLIST_KEY_NSLocationUsageDescription = "We'll only use your location to show your nearest store";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We'll only use your location to show your nearest store";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
