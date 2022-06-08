@@ -9,13 +9,13 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @State private var selectedPizzaIndex = 1
-    @State private var numberOfSlices = 1
-    @State private var crustTypeIndex = 1
     @State private var presentAlert = false
+    @State private var sauceTypeIndex = 1
+    @State private var crustTypeIndex = 1
+    @State private var numberOfSlices = 1
     
     var pizza: Pizza
-    let pizzaTypes = ["Pizza Margherita", "Greek Pizza", "Pizza Supreme", "Pizza California", "New York Pizza"]
+    let sauceTypes = ["Tomato Sauce", "Marinara Sauce", "Honey BBQ Sauce", "Garlic Parmesan Sauce", "Alfredo Sauce"]
     let crustTypes = ["Normal", "Thin Crust"]
     
     var body: some View {
@@ -30,11 +30,11 @@ struct DetailView: View {
                 Ingredients()
                 
                 NavigationView {
-                    SelectionForm(selectedPizzaIndex: $selectedPizzaIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, pizzaTypes: pizzaTypes, crustTypes: crustTypes)
+                    SelectionForm(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, sauceTypes: sauceTypes, crustTypes: crustTypes)
                 }
                 .frame(height: 400, alignment: .center)
                 
-                AddToOrder(selectedPizzaIndex: $selectedPizzaIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizza: pizza, pizzaTypes: pizzaTypes, crustTypes: crustTypes)
+                AddToOrder(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizza: pizza, sauceTypes: sauceTypes, crustTypes: crustTypes)
             }
         }
         .background(Color("LightGrayBackground"))
@@ -109,18 +109,19 @@ struct Ingredients: View {
 }
 
 struct SelectionForm: View {
-    @Binding var selectedPizzaIndex: Int
+    @Binding var sauceTypeIndex: Int
     @Binding var crustTypeIndex: Int
     @Binding var numberOfSlices: Int
-    var pizzaTypes: [String]
+    
+    var sauceTypes: [String]
     var crustTypes: [String]
     
     var body: some View {
         Form {
             Section(header: Text("Pizza")) {
-                Picker(selection: $selectedPizzaIndex, label: Text("Pizza Type")) {
-                    ForEach(0 ..< pizzaTypes.count, id:\.self) {
-                        Text(self.pizzaTypes[$0]).tag($0)
+                Picker(selection: $sauceTypeIndex, label: Text("Sauce")) {
+                    ForEach(0 ..< sauceTypes.count, id:\.self) {
+                        Text(self.sauceTypes[$0]).tag($0)
                     }
                 }
                 
@@ -143,19 +144,19 @@ struct SelectionForm: View {
 
 struct AddToOrder: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @Binding var selectedPizzaIndex: Int
+    @Binding var sauceTypeIndex: Int
     @Binding var crustTypeIndex: Int
     @Binding var numberOfSlices: Int
     @Binding var presentAlert: Bool
     
     var pizza: Pizza
-    var pizzaTypes: [String]
-    var crustTypes: [String]
+    var sauceTypes: [String] //can be used to display in Order view
+    var crustTypes: [String] //can be used to display in Order view
     
     var body: some View {
         Button(action: {
             let newOrder = PizzaOrder(context: viewContext)
-            newOrder.pizzaType = self.pizzaTypes[self.selectedPizzaIndex]
+            newOrder.pizzaType = pizza.name
             newOrder.orderStatus = .pending
             newOrder.numberOfSlices = Int16(self.numberOfSlices)
             newOrder.id = UUID()
