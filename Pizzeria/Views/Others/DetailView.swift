@@ -19,26 +19,37 @@ struct DetailView: View {
     let crustTypes = ["Normal", "Thin Crust"]
     
     var body: some View {
-        VStack(alignment: .leading) {
-            PizzaImage()
-            
-            BackToMenu()
-            
-            PizzaName(pizza: pizza)
-            
-            ScrollView{
-                Ingredients()
+        ZStack {
+            VStack(alignment: .leading) {
+                PizzaImage()
                 
-                NavigationView {
-                    SelectionForm(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, sauceTypes: sauceTypes, crustTypes: crustTypes)
+                BackToMenu()
+                
+                PizzaName(pizza: pizza)
+                
+                ScrollView{
+                    Ingredients()
+                    
+                    NavigationView {
+                        SelectionForm(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, sauceTypes: sauceTypes, crustTypes: crustTypes)
+                    }
+                    .frame(height: 400, alignment: .center)
+                    
+                    AddToOrder(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizza: pizza, sauceTypes: sauceTypes, crustTypes: crustTypes)
                 }
-                .frame(height: 400, alignment: .center)
-                
-                AddToOrder(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizza: pizza, sauceTypes: sauceTypes, crustTypes: crustTypes)
+            }
+            .background(Color("LightGrayBackground"))
+            .navigationBarHidden(true)
+            
+            if(presentAlert){
+                VStack {
+                    AlertView(presentAlert: $presentAlert)
+                        .padding()
+                        .transition(.move(edge: .top))
+                    Spacer()
+                }
             }
         }
-        .background(Color("LightGrayBackground"))
-        .navigationBarHidden(true)
     }
 }
 
@@ -165,7 +176,7 @@ struct AddToOrder: View {
             do {
                 try viewContext.save()
                 print("Order saved.")
-                withAnimation(.default){
+                withAnimation(.linear(duration: 0.5)){
                     presentAlert = true
                 }
             } catch {
@@ -175,11 +186,11 @@ struct AddToOrder: View {
             AddToOrderButton()
         }
         .padding()
-        .alert("Awesome!", isPresented: $presentAlert, actions: {
-            Button("OK", role: .cancel, action: {})
-        }, message: {
-            Text("Item added to your order.")
-        })
+//        .alert("Awesome!", isPresented: $presentAlert, actions: {
+//            Button("OK", role: .cancel, action: {})
+//        }, message: {
+//            Text("Item added to your order.")
+//        })
     }
 }
 

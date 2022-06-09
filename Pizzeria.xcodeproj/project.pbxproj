@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530B4C2E2851682800CC5C0F /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530B4C2D2851682800CC5C0F /* AlertView.swift */; };
 		536EA4C528457A5400C78F1D /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EA4C228457A5400C78F1D /* CategoryItem.swift */; };
 		536EA4C628457A5400C78F1D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EA4C328457A5400C78F1D /* Home.swift */; };
 		536EA4C728457A5400C78F1D /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EA4C428457A5400C78F1D /* CategoryRow.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		530B4C2928515C9200CC5C0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		530B4C2D2851682800CC5C0F /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		536EA4C228457A5400C78F1D /* CategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		536EA4C328457A5400C78F1D /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		536EA4C428457A5400C78F1D /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				53CDB839283B1372000E817B /* DetailView.swift */,
 				53CDB83B283B312C000E817B /* AccountSheet.swift */,
 				53917105283EFF2A00413E74 /* TabViewForIntro.swift */,
+				530B4C2D2851682800CC5C0F /* AlertView.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				53CDB82C283AC5B7000E817B /* Helpers.swift in Sources */,
 				53CDB83C283B312C000E817B /* AccountSheet.swift in Sources */,
 				53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */,
+				530B4C2E2851682800CC5C0F /* AlertView.swift in Sources */,
 				53CDB831283ADC52000E817B /* Order+CoreDataClass.swift in Sources */,
 				53917101283EE07700413E74 /* TabViewRouter.swift in Sources */,
 				53CDB832283ADC52000E817B /* Order+CoreDataProperties.swift in Sources */,
