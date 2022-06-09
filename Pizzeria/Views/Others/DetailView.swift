@@ -43,7 +43,7 @@ struct DetailView: View {
             
             if(presentAlert){
                 VStack {
-                    AlertView(presentAlert: $presentAlert)
+                    ToastMessage(presentAlert: $presentAlert)
                         .padding()
                         .transition(.move(edge: .top))
                     Spacer()
