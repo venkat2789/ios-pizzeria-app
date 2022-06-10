@@ -12,6 +12,10 @@ let validCouponCode = "GET50OFF"
 
 struct OrderView: View {
     @AppStorage("coupon_code") var coupon_code = ""
+    @AppStorage("user_name") var user_name = "John Doe"
+    @AppStorage("user_phone_number") var user_phone_number = "123-456-7890"
+    @AppStorage("user_email") var user_email = "example@example.com"
+    @AppStorage("user_address") var user_address = "123 Apple Way, NY 12345"
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [], predicate: NSPredicate(format: "status != %@", Status.completed.rawValue))
@@ -52,7 +56,15 @@ struct OrderView: View {
                         }
                     }
                     
-                    ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
+                    if(orders.count == 0){
+                        Text("No items added!")
+                    } else {
+                        ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
+                        
+                        OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
+                        
+                        PaymentInformation()
+                    }
                     
                 }
                 .listStyle(PlainListStyle())
@@ -64,7 +76,7 @@ struct OrderView: View {
                         .imageScale(.large)
                 }))
                 .sheet(isPresented: $showAccountInfoSheet){
-                    AccountSheet()
+                    AccountSheet(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)
                 }
                 
                 Total(couponApplied: $couponApplied, orders: orders)
@@ -206,7 +218,7 @@ struct ApplyCouponCode: View {
     @Binding var coupon_code: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5.0) {
+        VStack(alignment: .leading, spacing: 10.0) {
             Text("Apply Coupon Code")
                 .font(.headline)
             
@@ -238,6 +250,57 @@ struct ApplyCouponCode: View {
                         .background(Color.red)
                         .cornerRadius(15.0)
                 }
+            }
+        }
+        .padding(.top)
+        .padding(.bottom)
+    }
+}
+
+struct OrderInformation: View {
+    @Binding var user_name: String
+    @Binding var user_phone_number: String
+    @Binding var user_address: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text("Order Information")
+                .font(.headline)
+                .padding(.bottom, 5)
+            Text(user_name)
+                .font(.subheadline)
+            Text(user_phone_number)
+                .font(.caption)
+                .foregroundColor(.secondary)
+            HStack{
+                Text(user_address)
+                    .font(.subheadline)
+                Spacer()
+                Text("Delivery")
+                    .font(.subheadline)
+                    .foregroundColor(.red)
+            }
+        }
+        .padding(.top)
+        .padding(.bottom)
+    }
+}
+
+struct PaymentInformation: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5){
+            Text("Payment Information")
+                .font(.headline)
+                .padding(.bottom, 5)
+            Text("Credit/Debit Card")
+                .font(.subheadline)
+            HStack {
+                Text("Visa...1234")
+                    .font(.caption)
+                Spacer()
+                Image(systemName: "creditcard.fill")
+                    .font(.headline)
+                    .foregroundColor(.red)
             }
         }
         .padding(.top)

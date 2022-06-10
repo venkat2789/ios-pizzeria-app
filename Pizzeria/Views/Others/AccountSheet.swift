@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct AccountSheet: View {
-    @AppStorage("user_name") var user_name = ""
-    @AppStorage("user_phone_number") var user_phone_number = ""
-    @AppStorage("user_email") var user_email = ""
+    @Binding var user_name: String
+    @Binding var user_phone_number: String
+    @Binding var user_email: String
+    @Binding var user_address: String
     
     var body: some View {
         VStack {
             NavigationView {
-                UserInfoForm(name: $user_name, phoneNumber: $user_phone_number, email: $user_email)
+                UserInfoForm(name: $user_name, phoneNumber: $user_phone_number, email: $user_email, address: $user_address)
             }
-            .frame(height: 325)
             
             SaveButton()
             
@@ -38,7 +38,7 @@ struct AccountSheet: View {
 
 struct AccountSheet_Previews: PreviewProvider {
     static var previews: some View {
-        AccountSheet()
+        AccountSheet(user_name: Binding.constant("John Doe"), user_phone_number: Binding.constant("123-456-7890"), user_email: Binding.constant("abc@abc.com"), user_address: Binding.constant("123 Apple Way, NY 12345"))
     }
 }
 
@@ -64,10 +64,11 @@ struct UserInfoForm: View {
     @Binding var name: String
     @Binding var phoneNumber: String
     @Binding var email: String
+    @Binding var address: String
     
     var body: some View {
         Form {
-            Section(header: Text("Contact Details")) {
+            Section(header: Text("Personal Information")) {
                 TextField("Name", text: $name)
                     .textInputAutocapitalization(.words)
                     .disableAutocorrection(true)
@@ -78,6 +79,13 @@ struct UserInfoForm: View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .keyboardType(.emailAddress)
+            }
+            
+            Section(header: Text("Address")){
+                TextField("Name", text: $address)
+                    .textInputAutocapitalization(.words)
+                    .disableAutocorrection(true)
+                    .keyboardType(.default)
             }
         }
         .navigationTitle("Profile")
