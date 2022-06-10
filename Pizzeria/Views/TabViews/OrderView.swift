@@ -61,9 +61,13 @@ struct OrderView: View {
                     } else {
                         ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
                         
-                        OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
+                        NavigationLink(destination: ComingSoon()) {
+                            OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
+                        }
                         
-                        PaymentInformation()
+                        NavigationLink(destination: ComingSoon()) {
+                            PaymentInformation()
+                        }
                     }
                     
                 }
