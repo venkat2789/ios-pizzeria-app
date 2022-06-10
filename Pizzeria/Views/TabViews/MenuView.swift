@@ -18,7 +18,7 @@ struct MenuView: View {
             NavigationView {
                 ScrollView {
                     
-                    Title()
+                    SubHeading()
                     
                     LazyVGrid(columns: columns, spacing: 15){
                         ForEach(items) { pizza in
@@ -34,7 +34,8 @@ struct MenuView: View {
                         }
                     }
                 }
-                .navigationBarHidden(true)
+                .navigationTitle("All Pizzas")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }
@@ -48,19 +49,14 @@ struct MenuView_Previews: PreviewProvider {
     }
 }
 
-struct Title: View {
+struct SubHeading: View {
     var body: some View {
         VStack {
-            Text("All Pizzas") // add more typography
-                .font(.title3)
-                .bold()
-                .foregroundColor(.red)
             Text("An amazing pizza quote here.")
                 .font(.subheadline)
                 .bold()
                 .foregroundColor(.secondary)
         }
-        .padding()
     }
 }
 

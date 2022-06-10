@@ -26,68 +26,73 @@ struct OrderView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(orders) { order in
-                        HStack {
-                            PizzaInfo(order: order)
-                            
-                            Spacer()
-                            
-                            //                        Button(action: {
-                            //                            updateOrder(order: order)
-                            //                        }) {
-                            //                            Text(order.orderStatus == .pending ? "Prepare" : "Complete")
-                            //                                .foregroundColor(.blue)
-                            //                        }
-                            
-                            Price(couponApplied: $couponApplied, order: order)
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(orders) { order in
+                            HStack {
+                                PizzaInfo(order: order)
+                                
+                                Spacer()
+                                
+                                //                        Button(action: {
+                                //                            updateOrder(order: order)
+                                //                        }) {
+                                //                            Text(order.orderStatus == .pending ? "Prepare" : "Complete")
+                                //                                .foregroundColor(.blue)
+                                //                        }
+                                
+                                Price(couponApplied: $couponApplied, order: order)
+                            }
+                            .frame(height: 100)
                         }
-                        .frame(height: 100)
+                        .onDelete { indexSet in
+                            for index in indexSet {
+                                viewContext.delete(orders[index])
+                            }
+                            do {
+                                try viewContext.save()
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
+                        if(orders.count > 0){
+                            ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
+                            
+                            NavigationLink(destination: ComingSoon()) {
+                                OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
+                            }
+                            
+                            NavigationLink(destination: ComingSoon()) {
+                                PaymentInformation()
+                            }
+                        }
+                        
                     }
-                    .onDelete { indexSet in
-                        for index in indexSet {
-                            viewContext.delete(orders[index])
-                        }
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
+                    .listStyle(PlainListStyle())
+                    .navigationTitle("My Order")
+                    .navigationBarItems(trailing: Button(action: {
+                        showAccountInfoSheet = true
+                    }, label: {
+                        Image(systemName: "person.circle")
+                            .imageScale(.large)
+                    }))
+                    .sheet(isPresented: $showAccountInfoSheet){
+                        AccountSheet(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)
                     }
                     
-                    if(orders.count == 0){
-                        Text("No items added!")
-                    } else {
-                        ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
+                    if(orders.count > 0) {
+                        Total(couponApplied: $couponApplied, orders: orders)
                         
-                        NavigationLink(destination: ComingSoon()) {
-                            OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
-                        }
-                        
-                        NavigationLink(destination: ComingSoon()) {
-                            PaymentInformation()
-                        }
+                        PlaceOrder()
                     }
                     
                 }
-                .listStyle(PlainListStyle())
-                .navigationTitle("My Order")
-                .navigationBarItems(trailing: Button(action: {
-                    showAccountInfoSheet = true
-                }, label: {
-                    Image(systemName: "person.circle")
-                        .imageScale(.large)
-                }))
-                .sheet(isPresented: $showAccountInfoSheet){
-                    AccountSheet(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)
+                if(orders.count == 0) {
+                    EmptyCart()
                 }
-                
-                Total(couponApplied: $couponApplied, orders: orders)
-                
-                PlaceOrder()
             }
-            
         }
         
     }
@@ -309,5 +314,20 @@ struct PaymentInformation: View {
         }
         .padding(.top)
         .padding(.bottom)
+    }
+}
+
+struct EmptyCart: View {
+    var body: some View {
+        VStack(spacing: 10) {
+            Image(systemName: "cart")
+                .font(.largeTitle)
+                .foregroundColor(.red)
+            Text("You haven't added any pizzas yet.")
+                .font(.title3)
+                .kerning(-1.0)
+                .multilineTextAlignment(.center)
+        }
+        .padding()
     }
 }
