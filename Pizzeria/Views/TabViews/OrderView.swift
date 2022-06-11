@@ -12,10 +12,10 @@ let validCouponCode = "GET50OFF"
 
 struct OrderView: View {
     @AppStorage("coupon_code") var coupon_code = ""
-    @AppStorage("user_name") var user_name = "John Doe"
-    @AppStorage("user_phone_number") var user_phone_number = "123-456-7890"
-    @AppStorage("user_email") var user_email = "example@example.com"
-    @AppStorage("user_address") var user_address = "123 Apple Way, NY 12345"
+    @AppStorage("user_name") var user_name = ""
+    @AppStorage("user_phone_number") var user_phone_number = ""
+    @AppStorage("user_email") var user_email = ""
+    @AppStorage("user_address") var user_address = ""
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [], predicate: NSPredicate(format: "status != %@", Status.completed.rawValue))
