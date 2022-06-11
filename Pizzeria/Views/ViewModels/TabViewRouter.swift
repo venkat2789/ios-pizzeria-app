@@ -50,7 +50,6 @@ struct TabViewRouter: View {
                     .tag(4)
             }
             .font(.headline)
-            .accentColor(.red)// remove and set this in assets
         }
 }
 

@@ -48,7 +48,7 @@ struct BrandLogo: View {
     var body: some View {
         Image(systemName: "person.circle.fill")
             .resizable()
-            .foregroundColor(.red)
+            .foregroundColor(.accentColor)
             .aspectRatio(contentMode: .fill)
             .frame(width: 150, height: 150)
             .clipped()
@@ -119,7 +119,7 @@ struct LoginButton: View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 220, height: 60)
-                .background(Color.red)
+                .background(Color.accentColor)
                 .cornerRadius(15.0)
         }
     }
