@@ -35,7 +35,7 @@ struct TabViewRouter: View {
                         Text("Menu")
                     }
                     .tag(2)
-                FavoritesView()
+                FavoritesView(items: modelData.pizzas)
                     .tabItem {
                         Image(systemName: "heart")
                         Text("Favorites")

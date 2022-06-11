@@ -6,7 +6,7 @@
         "state": "California",
         "id": 1001,
         "isFeatured": true,
-        "isFavorite": true,
+        "isFavorite": false,
         "park": "Joshua Tree National Park",
         "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
         "imageName": "pizza-placeholder"
@@ -30,7 +30,7 @@
         "state": "Alaska",
         "id": 1003,
         "isFeatured": false,
-        "isFavorite": true,
+        "isFavorite": false,
         "park": "Klondike Gold Rush National Historical Park",
         "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
         "imageName": "pizza-placeholder"
@@ -42,7 +42,7 @@
         "state": "Montana",
         "id": 1004,
         "isFeatured": true,
-        "isFavorite": true,
+        "isFavorite": false,
         "park": "Glacier National Park",
         "description": "Suscipit inceptos est felis purus aenean aliquet adipiscing diam venenatis, augue nibh duis neque aliquam tellus condimentum sagittis vivamus, cras ante etiam sit conubia elit tempus accumsan libero, mattis per erat habitasse cubilia ligula penatibus curae.",
         "imageName": "pizza-placeholder"
@@ -64,7 +64,7 @@
         "category": "Meatless Specials",
         "price": "1.50",
         "state": "Alaska",
-        "id": 1005,
+        "id": 1006,
         "isFeatured": false,
         "isFavorite": false,
         "park": "Lake Clark National Park and Preserve",

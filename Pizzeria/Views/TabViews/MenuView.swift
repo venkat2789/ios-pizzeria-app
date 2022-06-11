@@ -45,7 +45,7 @@ struct MenuView_Previews: PreviewProvider {
     static var pizzas = ModelData().pizzas
     
     static var previews: some View {
-        MenuView(items: Array(pizzas.prefix(5))).environmentObject(ViewRouter()).previewInterfaceOrientation(.portraitUpsideDown)
+        MenuView(items: Array(pizzas.prefix(5))).environmentObject(ViewRouter())
     }
 }
 

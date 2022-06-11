@@ -8,13 +8,42 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    var items: [Pizza]
+    let columns: [GridItem] =
+    Array(repeating: .init(.fixed(185)), count: 2)
+    
+    var filteredPizzas: [Pizza] {
+        items.filter { pizza in
+            pizza.isFavorite
+        }
+    }
+    
     var body: some View {
-        Text("This is Favorites view")
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 15){
+                    ForEach(filteredPizzas) { pizza in
+                        NavigationLink(destination: DetailView(pizza: pizza),
+                                       label: {
+                            VStack(alignment: .leading) {
+                                CategoryItem(pizza: pizza)
+                                    .padding(.trailing, 15)
+                                
+                                PlaceholderText()
+                            }
+                        })
+                    }
+                }
+            }
+            .navigationTitle("My Favorites")
+        }
     }
 }
 
 struct FavoritesView_Previews: PreviewProvider {
+    static var pizzas = ModelData().pizzas
+    
     static var previews: some View {
-        FavoritesView()
+        FavoritesView(items: Array(pizzas.prefix(5)))
     }
 }

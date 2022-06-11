@@ -9,12 +9,17 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var modelData: ModelData
     @State private var presentAlert = false
     @State private var sauceTypeIndex = 1
     @State private var crustTypeIndex = 1
     @State private var numberOfSlices = 1
     
     var pizza: Pizza
+    var pizzaIndex: Int {
+        modelData.pizzas.firstIndex(where: { $0.id == pizza.id })!
+    }
+    
     let sauceTypes = ["Tomato Sauce", "Marinara Sauce", "Honey BBQ Sauce", "Garlic Parmesan Sauce", "Alfredo Sauce"]
     let crustTypes = ["Normal", "Thin Crust"]
     
@@ -23,7 +28,11 @@ struct DetailView: View {
             VStack(alignment: .leading) {
                 PizzaImage()
                 
-                BackToMenu()
+                HStack {
+                    BackToMenu()
+                    Spacer()
+                    FavoriteButton(isSet: $modelData.pizzas[pizzaIndex].isFavorite)
+                }
                 
                 PizzaName(pizza: pizza)
                 
@@ -55,7 +64,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(pizza: ModelData().pizzas[0]).environmentObject(ViewRouter())
+        DetailView(pizza: ModelData().pizzas[0]).environmentObject(ViewRouter()).environmentObject(ModelData())
     }
 }
 
