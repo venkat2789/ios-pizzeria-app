@@ -46,9 +46,8 @@ struct Login_Previews: PreviewProvider {
 
 struct BrandLogo: View {
     var body: some View {
-        Image(systemName: "person.circle.fill")
+        Image("logo")
             .resizable()
-            .foregroundColor(.accentColor)
             .aspectRatio(contentMode: .fill)
             .frame(width: 150, height: 150)
             .clipped()
