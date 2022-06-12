@@ -1,19 +1,22 @@
 //
-//  ComingSoon.swift
+//  NoItemsView.swift
 //  Pizzeria
 //
-//  Created by Venkatachalapathy Sivaprakasam on 6/10/22.
+//  Created by Venkatachalapathy Sivaprakasam on 6/11/22.
 //
 
 import SwiftUI
 
-struct ComingSoon: View {
+struct NoItemsView: View {
+    var systemName: String
+    var text: String
+    
     var body: some View {
         VStack(spacing: 10) {
-            Image(systemName: "pencil.and.outline")
+            Image(systemName: systemName)
                 .font(.largeTitle)
                 .foregroundColor(.red)
-            Text("Come back soon, we are still building this section of the app.")
+            Text(text)
                 .font(.title3)
                 .kerning(-1.0)
                 .multilineTextAlignment(.center)
@@ -22,8 +25,8 @@ struct ComingSoon: View {
     }
 }
 
-struct ComingSoon_Previews: PreviewProvider {
+struct NoItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        ComingSoon()
+        NoItemsView(systemName: "cart", text: "Text goes here.")
     }
 }

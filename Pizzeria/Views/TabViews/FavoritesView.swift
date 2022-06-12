@@ -19,23 +19,28 @@ struct FavoritesView: View {
     }
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 15){
-                    ForEach(filteredPizzas) { pizza in
-                        NavigationLink(destination: DetailView(pizza: pizza),
-                                       label: {
-                            VStack(alignment: .leading) {
-                                CategoryItem(pizza: pizza)
-                                    .padding(.trailing, 15)
-                                
-                                PlaceholderText()
-                            }
-                        })
+        ZStack{
+            NavigationView {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 15){
+                        ForEach(filteredPizzas) { pizza in
+                            NavigationLink(destination: DetailView(pizza: pizza),
+                                           label: {
+                                VStack(alignment: .leading) {
+                                    CategoryItem(pizza: pizza)
+                                        .padding(.trailing, 15)
+                                    
+                                    PlaceholderText()
+                                }
+                            })
+                        }
                     }
                 }
+                .navigationTitle("My Favorites")
             }
-            .navigationTitle("My Favorites")
+            if(filteredPizzas.count == 0) {
+                NoItemsView(systemName: "heart", text: "You dont have any favorites yet.")
+            }
         }
     }
 }

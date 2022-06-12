@@ -60,11 +60,11 @@ struct OrderView: View {
                         if(orders.count > 0){
                             ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
                             
-                            NavigationLink(destination: ComingSoon()) {
+                            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")) {
                                 OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
                             }
                             
-                            NavigationLink(destination: ComingSoon()) {
+                            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")) {
                                 PaymentInformation()
                             }
                         }
@@ -90,7 +90,7 @@ struct OrderView: View {
                     
                 }
                 if(orders.count == 0) {
-                    EmptyCart()
+                    NoItemsView(systemName: "cart", text: "You haven't added any pizzas yet.")
                 }
             }
         }
@@ -314,20 +314,5 @@ struct PaymentInformation: View {
         }
         .padding(.top)
         .padding(.bottom)
-    }
-}
-
-struct EmptyCart: View {
-    var body: some View {
-        VStack(spacing: 10) {
-            Image(systemName: "cart")
-                .font(.largeTitle)
-                .foregroundColor(.red)
-            Text("You haven't added any pizzas yet.")
-                .font(.title3)
-                .kerning(-1.0)
-                .multilineTextAlignment(.center)
-        }
-        .padding()
     }
 }
