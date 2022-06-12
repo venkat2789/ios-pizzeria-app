@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct RewardsView: View {
+    var rewardsAvailable: Bool = false
+    
     var body: some View {
-        Text("This is Rewards view")
+        ZStack{
+            NavigationView {
+                ScrollView {
+                    
+                }
+                .navigationTitle("My Rewards")
+            }
+            if(!rewardsAvailable) {
+                NoItemsView(systemName: "dollarsign.circle", text: "There are no rewards available at this time. \n Come back later!")
+            }
+        }
     }
 }
 

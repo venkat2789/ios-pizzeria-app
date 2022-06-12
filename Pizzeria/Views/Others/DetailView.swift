@@ -29,9 +29,11 @@ struct DetailView: View {
                 PizzaImage()
                 
                 HStack {
-                    BackToMenu()
+                    BackButton()
+                        .padding(10)
                     Spacer()
                     FavoriteButton(isSet: $modelData.pizzas[pizzaIndex].isFavorite)
+                        .padding(10)
                 }
                 
                 PizzaName(pizza: pizza)
@@ -68,7 +70,7 @@ struct DetailView_Previews: PreviewProvider {
     }
 }
 
-struct BackToMenu: View {
+struct BackButton: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -82,18 +84,16 @@ struct BackToMenu: View {
                     .font(.callout)
                     .padding(.leading, -5)
             }
-            .padding(10)
     }
 }
 
 struct PizzaImage: View {
     var body: some View {
-        Image("pizza-placeholder")
+        Image("pizza-detail")
             .resizable()
-            .aspectRatio(3/2, contentMode: .fill)
+            .aspectRatio(3/2, contentMode: .fit)
             .ignoresSafeArea(edges: .top)
-            .frame(height: 200)
-            .padding(.bottom)
+            .frame(height: 264)
     }
 }
 

@@ -12,8 +12,9 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            VStack{
+            VStack(alignment: .leading){
                 WelcomeMessage()
+                    .padding(15)
                 
                 List {
                     ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
@@ -43,15 +44,17 @@ struct WelcomeMessage: View {
     @AppStorage("user_name") var user_name = ""
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20.0) {
+        VStack(alignment: .leading, spacing: 10.0) {
             Text("Welcome, \(user_name)")
                 .font(.title)
                 .bold()
-                .padding(.top, 20)
+                .padding(.top, 15)
             
             Text("Select from our amazing categories of pizza below or view the full menu.")
+                .kerning(-0.5)
+                .multilineTextAlignment(.leading)
                 .font(.headline)
-                .padding(.bottom, 20)
+                .padding(.bottom, 10)
         }
     }
 }

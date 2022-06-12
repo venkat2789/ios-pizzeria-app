@@ -67,6 +67,17 @@ struct OrderView: View {
                             NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")) {
                                 PaymentInformation()
                             }
+                            
+                            HStack {
+                                Spacer()
+                                Button(action: {}) {
+                                    Text("Disclaimers")
+                                        .font(.caption)
+                                        .foregroundColor(.green)
+                                }
+                                Spacer()
+                            }
+                            .padding(.top, 100)
                         }
                         
                     }

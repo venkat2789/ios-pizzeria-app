@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountSheet: View {
+    @Environment(\.colorScheme) private var colorScheme
     @Binding var user_name: String
     @Binding var user_phone_number: String
     @Binding var user_email: String
@@ -32,7 +33,7 @@ struct AccountSheet: View {
             .padding()
             
         }
-        .background(Color("LightGrayBackground"))
+        .background(colorScheme == .light ? Color("LightGrayBackground") : nil)
     }
 }
 
@@ -82,12 +83,12 @@ struct UserInfoForm: View {
             }
             
             Section(header: Text("Address")){
-                TextField("Name", text: $address)
+                TextField("Full address", text: $address)
                     .textInputAutocapitalization(.words)
                     .disableAutocorrection(true)
                     .keyboardType(.default)
             }
         }
-        .navigationTitle("Profile")
+        .navigationTitle("My Profile")
     }
 }
