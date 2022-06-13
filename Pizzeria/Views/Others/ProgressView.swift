@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProgressView: View {
+    @State var trimValue: Double = 0.0
     let progress: Double
     
     var body: some View {
@@ -28,7 +29,7 @@ struct ProgressView: View {
             }
             
             Circle()
-                .trim(from: 0, to: progress)
+                .trim(from: 0, to: trimValue)
                 .stroke( // 1
                     Color.accentColor,
                     style: StrokeStyle(
@@ -36,8 +37,11 @@ struct ProgressView: View {
                          lineCap: .round
                      )
                 )
+                .animation(.easeIn(duration: 1.0), value: trimValue)
                 .rotationEffect(.degrees(-90))
-                .animation(.easeInOut, value: progress)
+                .onAppear {
+                        self.trimValue = progress
+                }
         }
         .padding()
         .frame(width: 200, height: 200, alignment: .center)
