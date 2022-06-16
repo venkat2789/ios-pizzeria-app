@@ -19,6 +19,7 @@
 		536EA4CB28457AA000C78F1D /* pizzaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 536EA4C828457AA000C78F1D /* pizzaData.json */; };
 		536EA4CC28457AA000C78F1D /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EA4C928457AA000C78F1D /* Pizza.swift */; };
 		536EA4CD28457AA000C78F1D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EA4CA28457AA000C78F1D /* ModelData.swift */; };
+		536F0D1F285A9976001CEBD7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536F0D1E285A9976001CEBD7 /* ProfileView.swift */; };
 		53917101283EE07700413E74 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917100283EE07700413E74 /* TabViewRouter.swift */; };
 		53917106283EFF2A00413E74 /* TabViewForIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917105283EFF2A00413E74 /* TabViewForIntro.swift */; };
 		53CDB8132839A1BB000E817B /* PizzeriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CDB8122839A1BB000E817B /* PizzeriaApp.swift */; };
@@ -54,6 +55,7 @@
 		536EA4C828457AA000C78F1D /* pizzaData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pizzaData.json; sourceTree = "<group>"; };
 		536EA4C928457AA000C78F1D /* Pizza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
 		536EA4CA28457AA000C78F1D /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		536F0D1E285A9976001CEBD7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		53917100283EE07700413E74 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
 		53917105283EFF2A00413E74 /* TabViewForIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewForIntro.swift; sourceTree = "<group>"; };
 		53AD9406284D744600C47C8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				5325120328555F6C00FC31C4 /* NoItemsView.swift */,
 				532512052856728B00FC31C4 /* ProgressView.swift */,
 				532512072856810E00FC31C4 /* RewardItem.swift */,
+				536F0D1E285A9976001CEBD7 /* ProfileView.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				53CDB842283C50A2000E817B /* MenuView.swift in Sources */,
 				536EA4CC28457AA000C78F1D /* Pizza.swift in Sources */,
+				536F0D1F285A9976001CEBD7 /* ProfileView.swift in Sources */,
 				53CDB82E283AC7B6000E817B /* ViewRouter.swift in Sources */,
 				53CDB83E283C4F75000E817B /* RewardsView.swift in Sources */,
 				536EA4CD28457AA000C78F1D /* ModelData.swift in Sources */,

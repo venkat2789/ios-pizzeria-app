@@ -60,8 +60,8 @@ struct OrderView: View {
                         if(orders.count > 0){
                             ApplyCouponCode(coupon_applied: $couponApplied, coupon_code: $coupon_code)
                             
-                            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")) {
-                                OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
+                            NavigationLink(destination: ProfileView(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)) {
+                                    OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
                             }
                             
                             NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")) {
@@ -283,22 +283,31 @@ struct OrderInformation: View {
     @Binding var user_address: String
     
     var body: some View {
+        let infoAvailable: Bool = !user_name.isEmpty && !user_phone_number.isEmpty && !user_address.isEmpty
+        
         VStack(alignment: .leading, spacing: 5) {
             Text("Order Information")
                 .font(.headline)
                 .padding(.bottom, 5)
-            Text(user_name)
-                .font(.subheadline)
-            Text(user_phone_number)
-                .font(.caption)
-                .foregroundColor(.secondary)
-            HStack{
-                Text(user_address)
-                    .font(.subheadline)
-                Spacer()
-                Text("Delivery")
+            
+            if(!infoAvailable){
+                Text("Enter Delivery & Contact Information")
                     .font(.subheadline)
                     .foregroundColor(.red)
+            } else {
+                Text(user_name)
+                    .font(.subheadline)
+                Text(user_phone_number)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                HStack{
+                    Text(user_address)
+                        .font(.subheadline)
+                    Spacer()
+                    Text("Delivery")
+                        .font(.subheadline)
+                        .foregroundColor(.red)
+                }
             }
         }
         .padding(.top)
