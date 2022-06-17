@@ -14,75 +14,20 @@ struct AccountSheet: View {
     @Binding var user_email: String
     @Binding var user_address: String
     
-    
     var body: some View {
         NavigationView{
             VStack {
-                VStack(spacing: 5){
-                    Text(user_name)
-                        .font(.title3)
-                        .bold()
-                        .kerning(-0.5)
-                    Divider()
-                        .frame(width: 200)
-                    Text(user_email)
-                        .font(.subheadline)
-                    Text(user_phone_number)
-                        .font(.caption)
-                    
-                    Button(action: {}){
-                        Text("Edit")
-                            .font(.caption)
-                    }
-                    .padding(10)
-                    
-                }
-                .padding(30)
+                Header(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)
                 
                 Spacer()
                 
-                List{
-                    NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
-                        Text("Order History")
-                            .font(.body)
-                    }
-                    .frame(height: 35)
-                    
-                    NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
-                        Text("Payment Methods")
-                            .font(.body)
-                    }
-                    .frame(height: 35)
-                    
-                    NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
-                        Text("Saved Addresses")
-                            .font(.body)
-                    }
-                    .frame(height: 35)
-                }
-                .listStyle(.grouped)
+                InfoList()
                 
-                Button(action: {
-                    //
-                }) {
-                    Text("Log out")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 150, height: 45)
-                        .background(Color.red)
-                        .cornerRadius(15.0)
-                }
+                LogOutButton()
                 
                 Spacer()
                 
-                HStack {
-                    Text("App Version")
-                    Text("1.0.0")
-                }
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .padding()
+                Footer()
                 
             }
             .navigationBarHidden(true)
@@ -97,8 +42,105 @@ struct AccountSheet_Previews: PreviewProvider {
             user_name: Binding.constant("John Doe"),
             user_phone_number: Binding.constant("123-456-7890"),
             user_email: Binding.constant("example@example.com"),
-            user_address: Binding.constant("123 Apple Way, NY 12345"))
+            user_address: Binding.constant("123 Apple Way, NY 12345")).environmentObject(ViewRouter())
     }
 }
 
 
+
+struct LogOutButton: View {
+    @EnvironmentObject var viewRouter: ViewRouter
+    @State private var showAlert: Bool = false
+    
+    var body: some View {
+        Button(action: {
+            showAlert = true
+        }) {
+            Text("Logout")
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 150, height: 45)
+                .background(Color.red)
+                .cornerRadius(15.0)
+        }
+        .alert(isPresented: $showAlert){
+            Alert(
+                title: Text("Are you sure you want to logout?"),
+                primaryButton: .destructive((Text("Confirm"))) {
+                    withAnimation(){
+                        viewRouter.currentPage = .login
+                    }
+                },
+                secondaryButton: .cancel()
+            )
+        }
+        
+    }
+}
+
+struct InfoList: View {
+    var body: some View {
+        List{
+            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
+                Text("Order History")
+                    .font(.body)
+            }
+            .frame(height: 35)
+            
+            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
+                Text("Payment Methods")
+                    .font(.body)
+            }
+            .frame(height: 35)
+            
+            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
+                Text("Saved Addresses")
+                    .font(.body)
+            }
+            .frame(height: 35)
+        }
+        .listStyle(.grouped)
+    }
+}
+
+struct Footer: View {
+    var body: some View {
+        HStack {
+            Text("App Version")
+            Text("1.0.1")
+        }
+        .font(.subheadline)
+        .foregroundColor(.secondary)
+        .padding()
+    }
+}
+
+struct Header: View {
+    @Binding var user_name: String
+    @Binding var user_phone_number: String
+    @Binding var user_email: String
+    @Binding var user_address: String
+    
+    var body: some View {
+        VStack(spacing: 5){
+            Text(user_name)
+                .font(.title3)
+                .bold()
+                .kerning(-0.5)
+            Divider()
+                .frame(width: 200)
+            Text(user_email)
+                .font(.subheadline)
+            Text(user_phone_number)
+                .font(.caption)
+            
+            NavigationLink(destination: ProfileView(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)){
+                Text("Edit")
+                    .font(.caption)
+                    .padding(10)
+            }
+        }
+        .padding(.top, 30)
+    }
+}
