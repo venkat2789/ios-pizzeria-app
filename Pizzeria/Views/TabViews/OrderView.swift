@@ -22,6 +22,7 @@ struct OrderView: View {
     var orders: FetchedResults<PizzaOrder>
     
     @State var showAccountInfoSheet: Bool = false
+    @State var showOrderConfirmAlert: Bool = false
     @State var couponApplied: Bool = false
     
     var body: some View {
@@ -96,12 +97,16 @@ struct OrderView: View {
                     if(orders.count > 0) {
                         Total(couponApplied: $couponApplied, orders: orders)
                         
-                        PlaceOrder()
+                        PlaceOrder(showOrderConfirmAlert: $showOrderConfirmAlert)
                     }
                     
                 }
                 if(orders.count == 0) {
                     NoItemsView(systemName: "cart", text: "You haven't added any pizzas yet.")
+                }
+                
+                if(showOrderConfirmAlert){
+                    AlertView(presentAlert: $showOrderConfirmAlert)
                 }
             }
         }
@@ -217,8 +222,14 @@ struct Total: View {
 }
 
 struct PlaceOrder: View {
+    @Binding var showOrderConfirmAlert: Bool
+    
     var body: some View {
-        Button(action: {}) {
+        Button(action: {
+            withAnimation(){
+                showOrderConfirmAlert = true
+            }
+        }) {
             Text("Place Order")
                 .font(.headline)
                 .foregroundColor(.white)

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct AlertView: View {
     @Binding var presentAlert: Bool
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 20) {
             Text("Awesome!".uppercased())
                 .bold()
                 .kerning(2.0)
@@ -20,17 +21,8 @@ struct AlertView: View {
                 .font(.footnote)
                 .foregroundColor(.primary)
             
-//            Text("SubTitle")
-//                .kerning(-1.0)
-//                .font(.largeTitle)
-//                .fontWeight(.black)
-//                .foregroundColor(.primary)
-            
-            Text("Item added!")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.center)
-                .lineSpacing(10)
+            Text("Order \(Text("#\(randomString(length: 5))").bold().foregroundColor(.accentColor)). Your pizza will be ready in 15-20 mins.")
+                .font(.callout)
             
             Button(action: {
                 withAnimation(){
@@ -38,26 +30,34 @@ struct AlertView: View {
                 }
             }) {
                 Text("Continue")
-                    .bold()
-                    .foregroundColor(.primary)
-                    .padding(20)
-                    .frame(maxWidth: .infinity)
-                    .background(.red)
-                    .cornerRadius(12.0)
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 150, height: 45)
+                    .background(Color.red)
+                    .cornerRadius(15.0)
             }
         }
-                .frame(maxWidth: 250)
-                .padding()
-//                .frame(maxWidth: 300)
-                .background(Color("LightGrayBackground"))
-                .cornerRadius(CGFloat(21.0))
-                .shadow(radius: 10, x: 5, y: 5)
-                .transition(.move(edge: .bottom))
+        .frame(maxWidth: 250)
+        .padding()
+        .background(colorScheme == .light ? Color("LightGrayBackground") : Color("BackgroundColor"))
+        .cornerRadius(CGFloat(21.0))
+        .shadow(radius: 10, x: 5, y: 5)
+        .transition(.opacity)
+        
+    }
+    
+    func randomString(length: Int) -> String {
+      let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
 
 struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
         AlertView(presentAlert: Binding.constant(true))
+            
+            
+            
     }
 }
