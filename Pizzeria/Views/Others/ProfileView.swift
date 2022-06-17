@@ -15,9 +15,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack{
-            NavigationView {
-                UserInfoForm(name: $user_name, phoneNumber: $user_phone_number, email: $user_email, address: $user_address)
-            }
+            UserInfoForm(name: $user_name, phoneNumber: $user_phone_number, email: $user_email, address: $user_address)
             
             SaveButton()
                 .padding()

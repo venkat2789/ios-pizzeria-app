@@ -90,7 +90,7 @@ struct OrderView: View {
                             .imageScale(.large)
                     }))
                     .sheet(isPresented: $showAccountInfoSheet){
-                        AccountSheet(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)
+                        AccountSheet(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address, showAccountInfoSheet: $showAccountInfoSheet)
                     }
                     
                     if(orders.count > 0) {

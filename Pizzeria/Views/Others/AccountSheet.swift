@@ -13,10 +13,13 @@ struct AccountSheet: View {
     @Binding var user_phone_number: String
     @Binding var user_email: String
     @Binding var user_address: String
+    @Binding var showAccountInfoSheet: Bool
     
     var body: some View {
         NavigationView{
             VStack {
+                CloseButton(showAccountInfoSheet: $showAccountInfoSheet)
+                
                 Header(user_name: $user_name, user_phone_number: $user_phone_number, user_email: $user_email, user_address: $user_address)
                 
                 Spacer()
@@ -42,7 +45,8 @@ struct AccountSheet_Previews: PreviewProvider {
             user_name: Binding.constant("John Doe"),
             user_phone_number: Binding.constant("123-456-7890"),
             user_email: Binding.constant("example@example.com"),
-            user_address: Binding.constant("123 Apple Way, NY 12345")).environmentObject(ViewRouter())
+            user_address: Binding.constant("123 Apple Way, NY 12345"),
+            showAccountInfoSheet: Binding.constant(true)).environmentObject(ViewRouter())
     }
 }
 
@@ -142,5 +146,22 @@ struct Header: View {
             }
         }
         .padding(.top, 30)
+    }
+}
+
+struct CloseButton: View {
+    @Binding var showAccountInfoSheet: Bool
+    
+    var body: some View {
+        HStack{
+            Spacer()
+            Button(action: {
+                showAccountInfoSheet = false
+            }){
+                Image(systemName: "xmark.circle")
+                    .imageScale(.large)
+            }
+        }
+        .padding(10)
     }
 }
