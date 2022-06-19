@@ -14,6 +14,7 @@ struct DetailView: View {
     @State private var sauceTypeIndex = 1
     @State private var crustTypeIndex = 1
     @State private var numberOfSlices = 1
+    @State private var pizzaSizeIndex = 1
     
     var pizza: Pizza
     var pizzaIndex: Int {
@@ -22,6 +23,7 @@ struct DetailView: View {
     
     let sauceTypes = ["Tomato Sauce", "Marinara Sauce", "Honey BBQ Sauce", "Garlic Parmesan Sauce", "Alfredo Sauce"]
     let crustTypes = ["Normal", "Thin Crust"]
+    let pizzaSizes = ["Small", "Medium", "Large", "X Large"]
     
     var body: some View {
         ZStack {
@@ -42,9 +44,9 @@ struct DetailView: View {
                     Ingredients()
                     
                     NavigationView {
-                        SelectionForm(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, sauceTypes: sauceTypes, crustTypes: crustTypes)
+                        SelectionForm(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, pizzaSizeIndex: $pizzaSizeIndex, sauceTypes: sauceTypes, crustTypes: crustTypes, pizzaSizes: pizzaSizes)
                     }
-                    .frame(height: 400, alignment: .center)
+                    .frame(height: 450, alignment: .center)
                     
                     AddToOrder(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizza: pizza, sauceTypes: sauceTypes, crustTypes: crustTypes)
                 }
@@ -132,20 +134,30 @@ struct SelectionForm: View {
     @Binding var sauceTypeIndex: Int
     @Binding var crustTypeIndex: Int
     @Binding var numberOfSlices: Int
+    @Binding var pizzaSizeIndex: Int
     
     var sauceTypes: [String]
     var crustTypes: [String]
+    var pizzaSizes: [String]
     
     var body: some View {
         Form {
-            Section(header: Text("Pizza")) {
-                Picker(selection: $sauceTypeIndex, label: Text("Sauce")) {
-                    ForEach(0 ..< sauceTypes.count, id:\.self) {
-                        Text(self.sauceTypes[$0]).tag($0)
+            Section("Size and Quantity") {
+                Picker("Size", selection: $pizzaSizeIndex) {
+                    ForEach(0 ..< pizzaSizes.count, id:\.self) {
+                        Text(self.pizzaSizes[$0]).tag($0)
                     }
                 }
+                .pickerStyle(.segmented)
                 
                 Stepper("\(numberOfSlices) Slices", value: $numberOfSlices, in: 1...12)
+            }
+            
+            
+            Picker(selection: $sauceTypeIndex, label: Text("Sauce")) {
+                ForEach(0 ..< sauceTypes.count, id:\.self) {
+                    Text(self.sauceTypes[$0]).tag($0)
+                }
             }
             
             Section(header: Text("Crust")) {
@@ -156,7 +168,9 @@ struct SelectionForm: View {
                 }
                 .pickerStyle(.segmented)
             }
+            
         }
+        .font(.subheadline)
         .navigationTitle("Customize")
         .navigationBarTitleDisplayMode(.inline)
     }
