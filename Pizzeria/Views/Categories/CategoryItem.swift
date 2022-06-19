@@ -23,17 +23,33 @@ struct CategoryItem: View {
                     .font(.caption)
                     .bold()
                 
-                Image(systemName: "flame.circle")
+                if(pizza.spicy){
+                    Image(systemName: "flame.circle")
                     .font(.subheadline)
                     .foregroundColor(.red)
+                }
                 
-                Image(systemName: "leaf.circle")
+                if(pizza.vegan){
+                    Image(systemName: "leaf.circle")
                     .font(.subheadline)
                     .foregroundColor(.green)
+                }
             }
+            
+            CaloriesInfo(calories: pizza.calories)
         }
         .padding(.leading, 15)
         .frame(width: 170)
+    }
+}
+
+struct CaloriesInfo: View {
+    let calories: String
+    
+    var body: some View {
+        Text(calories)
+            .font(.caption2)
+            .foregroundColor(.secondary)
     }
 }
 

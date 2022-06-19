@@ -29,8 +29,6 @@ struct FavoritesView: View {
                                 VStack(alignment: .leading) {
                                     CategoryItem(pizza: pizza)
                                         .padding(.trailing, 15)
-                                    
-                                    PlaceholderText()
                                 }
                             })
                         }

@@ -28,7 +28,6 @@ struct MenuView: View {
                                     CategoryItem(pizza: pizza)
                                         .padding(.trailing, 15)
                                     
-                                    PlaceholderText()
                                 }
                             })
                         }
@@ -57,14 +56,5 @@ struct SubHeading: View {
                 .bold()
                 .foregroundColor(.secondary)
         }
-    }
-}
-
-struct PlaceholderText: View {
-    var body: some View {
-        Text("Placeholder")
-            .padding(.leading, 15)
-            .font(.caption2)
-            .foregroundColor(.secondary)
     }
 }

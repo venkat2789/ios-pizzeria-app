@@ -14,12 +14,12 @@ struct Home: View {
         NavigationView {
             VStack(alignment: .leading){
                 WelcomeMessage()
-                    .padding(15)
+                    .padding(10)
                 
                 List {
                     ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
                         CategoryRow(categoryName: key, items: modelData.categories[key]!)
-                            .padding(.bottom, 5)
+                            .padding(.bottom, 15)
                             .padding(.top, 5)
                     }
                     .listRowInsets(EdgeInsets())
@@ -27,6 +27,8 @@ struct Home: View {
                 .listStyle(.inset)
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                
+                Spacer()
             }
         }
     }
@@ -54,7 +56,6 @@ struct WelcomeMessage: View {
                 .kerning(-0.5)
                 .multilineTextAlignment(.leading)
                 .font(.headline)
-                .padding(.bottom, 10)
         }
     }
 }
