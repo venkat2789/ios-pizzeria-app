@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressView: View {
+struct RewardProgress: View {
     @State var trimValue: Double = 0.0
     let progress: Double
     
@@ -48,8 +48,8 @@ struct ProgressView: View {
     }
 }
 
-struct ProgressView_Previews: PreviewProvider {
+struct RewardProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressView(progress: 0.25)
+        RewardProgress(progress: 0.25)
     }
 }

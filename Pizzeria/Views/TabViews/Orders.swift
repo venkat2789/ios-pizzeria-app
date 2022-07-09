@@ -10,7 +10,7 @@ import SwiftUI
 let couponValue = 0.50 //to be made dynamic
 let validCouponCode = "GET50OFF"
 
-struct OrderView: View {
+struct Orders: View {
     @AppStorage("coupon_code") var coupon_code = ""
     @AppStorage("user_name") var user_name = ""
     @AppStorage("user_phone_number") var user_phone_number = ""
@@ -58,7 +58,7 @@ struct OrderView: View {
                                     OrderInformation(user_name: $user_name, user_phone_number: $user_phone_number, user_address: $user_address)
                             }
                             
-                            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")) {
+                            NavigationLink(destination: ToBeDevelopedView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")) {
                                 PaymentInformation()
                             }
                             
@@ -95,7 +95,7 @@ struct OrderView: View {
                     
                 }
                 if(orders.count == 0) {
-                    NoItemsView(systemName: "cart", text: "You haven't added any pizzas yet.")
+                    ToBeDevelopedView(systemName: "cart", text: "You haven't added any pizzas yet.")
                 }
                 
                 if(showOrderConfirmAlert){
@@ -108,9 +108,9 @@ struct OrderView: View {
     
 }
 
-struct OrderView_Previews: PreviewProvider {
+struct Orders_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView()
+        Orders()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

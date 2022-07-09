@@ -22,7 +22,7 @@ struct CategoryRow: View {
                     
                     ForEach(items) { pizza in
                         NavigationLink {
-                            DetailView(pizza: pizza)
+                            Detail(pizza: pizza)
                         } label: {
                             CategoryItem(pizza: pizza)
                         }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RewardsView: View {
+struct Rewards: View {
     var body: some View {
         GeometryReader { g in
             
@@ -28,7 +28,7 @@ struct RewardsView: View {
                         
                         HStack {
                             Spacer()
-                            ProgressView(progress: 0.67)
+                            RewardProgress(progress: 0.67)
                             Spacer()
                         }
                         .padding(.bottom, 20)
@@ -52,8 +52,8 @@ struct RewardsView: View {
     }
 }
 
-struct RewardsView_Previews: PreviewProvider {
+struct Rewards_Previews: PreviewProvider {
     static var previews: some View {
-        RewardsView()
+        Rewards()
     }
 }

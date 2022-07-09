@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FavoritesView: View {
+struct Favorites: View {
     var items: [Pizza]
     let columns: [GridItem] =
     Array(repeating: .init(.fixed(185)), count: 2)
@@ -24,7 +24,7 @@ struct FavoritesView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 15){
                         ForEach(filteredPizzas) { pizza in
-                            NavigationLink(destination: DetailView(pizza: pizza),
+                            NavigationLink(destination: Detail(pizza: pizza),
                                            label: {
                                 VStack(alignment: .leading) {
                                     CategoryItem(pizza: pizza)
@@ -37,16 +37,16 @@ struct FavoritesView: View {
                 .navigationTitle("My Favorites")
             }
             if(filteredPizzas.count == 0) {
-                NoItemsView(systemName: "heart", text: "You dont have any favorites yet.")
+                ToBeDevelopedView(systemName: "heart", text: "You dont have any favorites yet.")
             }
         }
     }
 }
 
-struct FavoritesView_Previews: PreviewProvider {
+struct Favorites_Previews: PreviewProvider {
     static var pizzas = ModelData().pizzas
     
     static var previews: some View {
-        FavoritesView(items: Array(pizzas.prefix(5)))
+        Favorites(items: Array(pizzas.prefix(5)))
     }
 }

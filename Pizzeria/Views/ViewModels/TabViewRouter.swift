@@ -23,25 +23,25 @@ struct TabViewRouter: View {
                         Text("Home")
                     }
                     .tag(0)
-                RewardsView()
+                Rewards()
                     .tabItem {
                         Image(systemName: "dollarsign.circle")
                         Text("Rewards")
                     }
                     .tag(1)
-                MenuView(items: modelData.pizzas)
+                Menu(items: modelData.pizzas)
                     .tabItem {
                         Image(systemName: "plus")
                         Text("Menu")
                     }
                     .tag(2)
-                FavoritesView(items: modelData.pizzas)
+                Favorites(items: modelData.pizzas)
                     .tabItem {
                         Image(systemName: "heart")
                         Text("Favorites")
                     }
                     .tag(3)
-                OrderView()
+                Orders()
                     .badge(orders.count)
                     .tabItem {
                         Image(systemName: "creditcard")

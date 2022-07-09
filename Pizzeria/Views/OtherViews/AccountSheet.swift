@@ -86,19 +86,19 @@ struct LogOutButton: View {
 struct InfoList: View {
     var body: some View {
         List{
-            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
+            NavigationLink(destination: ToBeDevelopedView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
                 Text("Order History")
                     .font(.body)
             }
             .frame(height: 35)
             
-            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
+            NavigationLink(destination: ToBeDevelopedView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
                 Text("Payment Methods")
                     .font(.body)
             }
             .frame(height: 35)
             
-            NavigationLink(destination: NoItemsView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
+            NavigationLink(destination: ToBeDevelopedView(systemName: "pencil.and.outline", text: "Come back soon, we are still building this section of the app.")){
                 Text("Saved Addresses")
                     .font(.body)
             }

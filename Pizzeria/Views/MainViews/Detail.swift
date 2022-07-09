@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct Detail: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var modelData: ModelData
     @State private var presentAlert = false
@@ -66,9 +66,9 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
+struct Detail_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(pizza: ModelData().pizzas[0]).environmentObject(ViewRouter()).environmentObject(ModelData())
+        Detail(pizza: ModelData().pizzas[0]).environmentObject(ViewRouter()).environmentObject(ModelData())
     }
 }
 
@@ -227,11 +227,6 @@ struct AddToOrder: View {
             AddToOrderButton()
         }
         .padding()
-//        .alert("Awesome!", isPresented: $presentAlert, actions: {
-//            Button("OK", role: .cancel, action: {})
-//        }, message: {
-//            Text("Item added to your order.")
-//        })
     }
 }
 

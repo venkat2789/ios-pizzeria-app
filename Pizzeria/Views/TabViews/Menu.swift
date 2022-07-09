@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuView: View {
+struct Menu: View {
     @EnvironmentObject var viewRouter: ViewRouter
     var items: [Pizza]
     let columns: [GridItem] =
@@ -22,7 +22,7 @@ struct MenuView: View {
                     
                     LazyVGrid(columns: columns, spacing: 15){
                         ForEach(items) { pizza in
-                            NavigationLink(destination: DetailView(pizza: pizza),
+                            NavigationLink(destination: Detail(pizza: pizza),
                                            label: {
                                 VStack(alignment: .leading) {
                                     CategoryItem(pizza: pizza)
@@ -40,11 +40,11 @@ struct MenuView: View {
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
+struct Menu_Previews: PreviewProvider {
     static var pizzas = ModelData().pizzas
     
     static var previews: some View {
-        MenuView(items: Array(pizzas.prefix(5))).environmentObject(ViewRouter())
+        Menu(items: Array(pizzas.prefix(5))).environmentObject(ViewRouter())
     }
 }
 

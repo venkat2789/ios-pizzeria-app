@@ -1,5 +1,5 @@
 //
-//  NoItemsView.swift
+//  ToBeDevelopedView.swift
 //  Pizzeria
 //
 //  Created by Venkatachalapathy Sivaprakasam on 6/11/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoItemsView: View {
+struct ToBeDevelopedView: View {
     var systemName: String
     var text: String
     
@@ -25,8 +25,8 @@ struct NoItemsView: View {
     }
 }
 
-struct NoItemsView_Previews: PreviewProvider {
+struct ToBeDevelopedView_Previews: PreviewProvider {
     static var previews: some View {
-        NoItemsView(systemName: "cart", text: "Text goes here.")
+        ToBeDevelopedView(systemName: "cart", text: "Text goes here.")
     }
 }
