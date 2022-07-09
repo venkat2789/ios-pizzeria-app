@@ -18,7 +18,7 @@ struct OrderView: View {
     @AppStorage("user_address") var user_address = ""
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [], predicate: NSPredicate(format: "status != %@", Status.completed.rawValue))
+    @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [])
     var orders: FetchedResults<PizzaOrder>
     
     @State var showAccountInfoSheet: Bool = false
@@ -140,9 +140,12 @@ struct PizzaInfo: View {
             VStack(alignment: .leading) {
                 Text("\(order.pizzaType)")
                     .font(.headline)
-                Text(" - \(order.numberOfSlices) slices")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                HStack {
+                    Text("Qty: \(order.quantity)")
+                    Text("Size: \(order.size)")
+                }
+                .font(.caption)
+                .foregroundColor(.secondary)
             }
         }
     }
@@ -170,16 +173,16 @@ struct Price: View {
     }
     
     func calcRoundedPrice(order: PizzaOrder) -> Double {
-        print("Price per slice \(order.price)")
-        print("# of slices \(Double(order.numberOfSlices))")
-        let pizzaPrice = order.price * Double(order.numberOfSlices)
+        print("Price per pizza \(order.price)")
+        print("Quantity \(Double(order.quantity))")
+        let pizzaPrice = order.price * Double(order.quantity)
         let roundedPrice = round(pizzaPrice * 100)/100.00
         
         return roundedPrice
     }
     
     func calcCouponPrice(order: PizzaOrder, couponValue: Double) -> Double {
-        let pizzaPrice = order.price * Double(order.numberOfSlices)
+        let pizzaPrice = order.price * Double(order.quantity)
         let couponPrice = pizzaPrice - (pizzaPrice * couponValue)
         let roundedCouponPrice = round(couponPrice * 100)/100.00
         
@@ -209,7 +212,7 @@ struct Total: View {
         var totalPrice = 0.00
         
         orders.forEach { order in
-            var pizzaPrice = order.price * Double(order.numberOfSlices)
+            var pizzaPrice = order.price * Double(order.quantity)
             if(couponApplied) {
                 pizzaPrice = pizzaPrice - (pizzaPrice * couponValue)
             }

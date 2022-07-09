@@ -12,7 +12,7 @@ struct TabViewRouter: View {
     @EnvironmentObject var modelData: ModelData
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [], predicate: NSPredicate(format: "status != %@", Status.completed.rawValue))
+    @FetchRequest(entity: PizzaOrder.entity(), sortDescriptors: [])
     var orders: FetchedResults<PizzaOrder>
     
     var body: some View {

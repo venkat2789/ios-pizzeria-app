@@ -11,9 +11,9 @@ struct DetailView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var modelData: ModelData
     @State private var presentAlert = false
+    @State private var quantity = 1
     @State private var sauceTypeIndex = 1
     @State private var crustTypeIndex = 1
-    @State private var numberOfSlices = 1
     @State private var pizzaSizeIndex = 1
     
     var pizza: Pizza
@@ -44,11 +44,11 @@ struct DetailView: View {
                     Ingredients()
                     
                     NavigationView {
-                        SelectionForm(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, pizzaSizeIndex: $pizzaSizeIndex, sauceTypes: sauceTypes, crustTypes: crustTypes, pizzaSizes: pizzaSizes)
+                        SelectionForm(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, quantity: $quantity, pizzaSizeIndex: $pizzaSizeIndex, sauceTypes: sauceTypes, crustTypes: crustTypes, pizzaSizes: pizzaSizes)
                     }
-                    .frame(height: 450, alignment: .center)
+                    .frame(height: 500, alignment: .center)
                     
-                    AddToOrder(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, numberOfSlices: $numberOfSlices, presentAlert: $presentAlert, pizza: pizza, sauceTypes: sauceTypes, crustTypes: crustTypes)
+                    AddToOrder(sauceTypeIndex: $sauceTypeIndex, crustTypeIndex: $crustTypeIndex, quantity: $quantity, presentAlert: $presentAlert, pizza: pizza, pizzaSize: pizzaSizes[pizzaSizeIndex], sauceTypes: sauceTypes, crustTypes: crustTypes)
                 }
             }
             .background(Color("LightGrayBackground"))
@@ -133,7 +133,7 @@ struct Ingredients: View {
 struct SelectionForm: View {
     @Binding var sauceTypeIndex: Int
     @Binding var crustTypeIndex: Int
-    @Binding var numberOfSlices: Int
+    @Binding var quantity: Int
     @Binding var pizzaSizeIndex: Int
     
     var sauceTypes: [String]
@@ -150,7 +150,7 @@ struct SelectionForm: View {
                 }
                 .pickerStyle(.segmented)
                 
-                Stepper("\(numberOfSlices) Slices", value: $numberOfSlices, in: 1...12)
+                Stepper("Quantity: \(quantity)", value: $quantity, in: 1...5)
             }
             
             
@@ -180,10 +180,11 @@ struct AddToOrder: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Binding var sauceTypeIndex: Int
     @Binding var crustTypeIndex: Int
-    @Binding var numberOfSlices: Int
+    @Binding var quantity: Int
     @Binding var presentAlert: Bool
     
     var pizza: Pizza
+    var pizzaSize: String
     var sauceTypes: [String] //can be used to display in Order view
     var crustTypes: [String] //can be used to display in Order view
     
@@ -191,10 +192,27 @@ struct AddToOrder: View {
         Button(action: {
             let newOrder = PizzaOrder(context: viewContext)
             newOrder.pizzaType = pizza.name
-            newOrder.orderStatus = .pending
-            newOrder.numberOfSlices = Int16(self.numberOfSlices)
+            newOrder.quantity = Int16(self.quantity)
+            newOrder.size = self.pizzaSize
             newOrder.id = UUID()
-            newOrder.price = Double(pizza.price) ?? 0.00
+            let originalPrice = Double(pizza.price) ?? 0.00
+            
+            var tempPrice: Double
+            switch newOrder.size{
+            case "Small":
+                tempPrice = originalPrice * 0.75
+            case "Medium":
+                tempPrice = originalPrice
+            case "Large":
+                tempPrice = originalPrice * 1.25
+            case "X Large":
+                tempPrice = originalPrice * 1.50
+            default:
+                tempPrice = originalPrice
+            }
+            
+            print("Price: \(tempPrice)")
+            newOrder.price = tempPrice
             
             do {
                 try viewContext.save()
