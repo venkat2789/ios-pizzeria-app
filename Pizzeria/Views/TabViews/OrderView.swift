@@ -36,13 +36,6 @@ struct OrderView: View {
                                 
                                 Spacer()
                                 
-                                //                        Button(action: {
-                                //                            updateOrder(order: order)
-                                //                        }) {
-                                //                            Text(order.orderStatus == .pending ? "Prepare" : "Complete")
-                                //                                .foregroundColor(.blue)
-                                //                        }
-                                
                                 Price(couponApplied: $couponApplied, order: order)
                             }
                             .frame(height: 100)
@@ -113,13 +106,6 @@ struct OrderView: View {
         
     }
     
-//    func updateOrder(order: PizzaOrder) {
-//            let newStatus = order.orderStatus == .pending ? Status.preparing : .completed
-//            viewContext.performAndWait {
-//                order.orderStatus = newStatus
-//                try? viewContext.save()
-//            }
-//        }
 }
 
 struct OrderView_Previews: PreviewProvider {

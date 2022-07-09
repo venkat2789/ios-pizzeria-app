@@ -118,7 +118,7 @@ struct LoginButton: View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 220, height: 60)
-                .background(Color.accentColor)
+                .background(Color.red)
                 .cornerRadius(15.0)
         }
     }

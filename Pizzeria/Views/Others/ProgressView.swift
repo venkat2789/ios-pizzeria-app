@@ -31,7 +31,7 @@ struct ProgressView: View {
             Circle()
                 .trim(from: 0, to: trimValue)
                 .stroke( // 1
-                    Color.accentColor,
+                    Color.red,
                     style: StrokeStyle(
                          lineWidth: 30,
                          lineCap: .round

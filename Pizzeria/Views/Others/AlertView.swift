@@ -21,7 +21,7 @@ struct AlertView: View {
                 .font(.footnote)
                 .foregroundColor(.primary)
             
-            Text("Order \(Text("#\(randomString(length: 5))").bold().foregroundColor(.accentColor)). Your pizza will be ready in 15-20 mins.")
+            Text("Order \(Text("#\(randomString(length: 5))").bold().foregroundColor(.red)). Your pizza will be ready in 15-20 mins.")
                 .font(.callout)
             
             Button(action: {
