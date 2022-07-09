@@ -51,7 +51,7 @@ struct Menu_Previews: PreviewProvider {
 struct SubHeading: View {
     var body: some View {
         VStack {
-            Text("An amazing pizza quote here.")
+            Text("Browse through our incredibly delicious collection!")
                 .font(.subheadline)
                 .bold()
                 .foregroundColor(.secondary)
