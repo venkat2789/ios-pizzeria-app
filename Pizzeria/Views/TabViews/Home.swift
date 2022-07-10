@@ -14,7 +14,7 @@ struct Home: View {
         NavigationView {
             VStack(alignment: .leading){
                 WelcomeMessage()
-                    .padding(10)
+                    .padding(.horizontal, 20)
                 
                 List {
                     ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
@@ -27,6 +27,7 @@ struct Home: View {
                 .listStyle(.inset)
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                .padding(10)
                 
                 Spacer()
             }

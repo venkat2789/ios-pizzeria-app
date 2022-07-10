@@ -41,10 +41,10 @@ struct Rewards: View {
                             RewardItem(purchaseDate: "15 May 22", purchaseAmount: 20.00)
                             RewardItem(purchaseDate: "05 Apr 22", purchaseAmount: 15.00)
                         }
-                        .frame(width: g.size.width - 30, height: 500)
+                        .frame(width: g.size.width - 40, height: 500)
                         
                     }
-                    .padding()
+                    .padding(20)
                 }
                 .navigationTitle("My Rewards")
             }

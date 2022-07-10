@@ -50,11 +50,35 @@ struct Menu_Previews: PreviewProvider {
 
 struct SubHeading: View {
     var body: some View {
-        VStack {
+        VStack (spacing: 5){
             Text("Browse through our incredibly delicious collection!")
                 .font(.subheadline)
                 .bold()
                 .foregroundColor(.secondary)
+            
+            HStack(spacing: 20){
+                HStack(spacing: 5){
+                    Image(systemName: "flame.circle")
+                        .font(.subheadline)
+                        .foregroundColor(.red)
+                    Text("Spicy")
+                        .font(.caption2)
+                        .bold()
+                        .foregroundColor(.secondary)
+                }
+                
+                HStack(spacing: 5){
+                    Image(systemName: "leaf.circle")
+                        .font(.subheadline)
+                        .foregroundColor(.green)
+                    Text("Vegan")
+                        .font(.caption2)
+                        .bold()
+                        .foregroundColor(.secondary)
+                }
+            }
+            .padding(.horizontal)
         }
+        .padding(.bottom, 15)
     }
 }
