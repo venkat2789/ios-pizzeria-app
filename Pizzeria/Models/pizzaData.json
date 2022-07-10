@@ -14,7 +14,7 @@
     },
     {
         "name": "Greek Pizza",
-        "category": "Other Top Picks",
+        "category": "Meatless Specials",
         "price": "20.00",
         "spicy": true,
         "id": 1002,
@@ -92,7 +92,7 @@
     },
     {
         "name": "Grilled Pizza",
-        "category": "Meatless Specials",
+        "category": "Other Top Picks",
         "price": "25.00",
         "spicy": true,
         "id": 1008,

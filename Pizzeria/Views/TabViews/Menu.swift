@@ -44,7 +44,7 @@ struct Menu_Previews: PreviewProvider {
     static var pizzas = ModelData().pizzas
     
     static var previews: some View {
-        Menu(items: Array(pizzas.prefix(5))).environmentObject(ViewRouter())
+        Menu(items: Array(pizzas.prefix(10))).environmentObject(ViewRouter())
     }
 }
 
