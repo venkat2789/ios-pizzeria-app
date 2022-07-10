@@ -270,6 +270,7 @@ struct ApplyCouponCode: View {
                         .background(Color.red)
                         .cornerRadius(15.0)
                 }
+                .disabled(coupon_code.isEmpty)
             }
         }
         .padding(.top)
