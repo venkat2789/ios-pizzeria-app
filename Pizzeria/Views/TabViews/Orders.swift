@@ -120,7 +120,7 @@ struct PizzaInfo: View {
     
     var body: some View {
         Group {
-            Image("pizza-placeholder")
+            Image(order.pizzaType)
                 .resizable()
                 .frame(width: 50, height: 50)
             VStack(alignment: .leading) {

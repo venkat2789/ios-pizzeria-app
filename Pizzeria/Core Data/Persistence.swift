@@ -16,9 +16,9 @@ struct PersistenceController {
         for _ in 0..<3 {
             let newItem = PizzaOrder(context: viewContext)
             newItem.id = UUID()
-            newItem.pizzaType = "New York Pizza"
+            newItem.pizzaType = "Greek Pizza"
             newItem.price = 20.00
-            newItem.quantity = 2
+            newItem.quantity = 1
             newItem.size = "Medium"
         }
         do {

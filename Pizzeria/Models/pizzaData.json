@@ -9,7 +9,7 @@
         "isFavorite": false,
         "vegan": false,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder",
+        "imageName": "St. Louis Pizza",
         "calories": "230 cal/slice"
     },
     {
@@ -22,7 +22,7 @@
         "isFavorite": false,
         "vegan": true,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-1",
+        "imageName": "Greek Pizza",
         "calories": "200 cal/slice"
     },
     {
@@ -35,7 +35,7 @@
         "isFavorite": false,
         "vegan": false,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-2",
+        "imageName": "Pizza Supreme",
         "calories": "280 cal/slice"
     },
     {
@@ -48,7 +48,7 @@
         "isFavorite": false,
         "vegan": false,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-6",
+        "imageName": "California Pizza",
         "calories": "190 cal/slice"
     },
     {
@@ -61,7 +61,7 @@
         "isFavorite": false,
         "vegan": false,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-4",
+        "imageName": "Chicago Thin Crust",
         "calories": "160 cal/slice"
     },
     {
@@ -74,7 +74,7 @@
         "isFavorite": false,
         "vegan": false,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-5",
+        "imageName": "Pizza Hawaiian",
         "calories": "180 cal/slice"
     },
     {
@@ -87,7 +87,7 @@
         "isFavorite": false,
         "vegan": true,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-3",
+        "imageName": "Stuffed Pizza",
         "calories": "240 cal/slice"
     },
     {
@@ -100,7 +100,7 @@
         "isFavorite": false,
         "vegan": true,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-9",
+        "imageName": "Grilled Pizza",
         "calories": "200 cal/slice"
     },
     {
@@ -113,7 +113,7 @@
         "isFavorite": false,
         "vegan": true,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-8",
+        "imageName": "Pizza Romana",
         "calories": "180 cal/slice"
     },
     {
@@ -126,7 +126,7 @@
         "isFavorite": false,
         "vegan": true,
         "ingredients": "These are the ingredients. These are the ingredients. These are the ingredients. These are the ingredients.",
-        "imageName": "pizza-placeholder-7",
+        "imageName": "Veggie Pizza",
         "calories": "150 cal/slice"
     }
 ]
