@@ -14,12 +14,9 @@ struct MainView: View {
         switch viewRouter.currentPage {
         case .login:
             Login()
-        case .home:
-            Home()
-                .transition(.scale)
-        case .list:
-            ContentView()
-                .transition(.scale)
+        case .landing:
+            TabViewRouter()
+                .transition(.move(edge: .trailing))
         }
     }
 }
